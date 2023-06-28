@@ -14,12 +14,12 @@
     "dependencies": {
         "@acme/api": "*",
         "@acme/tailwind-config": "*",
-        "@clerk/clerk-expo": "^0.17.7",
+        "@clerk/clerk-expo": "^0.18.9",
         "@shopify/flash-list": "^1.4.0",
-        "@tanstack/react-query": "^4.16.1",
-        "@trpc/client": "^10.1.0",
-        "@trpc/react-query": "^10.1.0",
-        "@trpc/server": "^10.1.0",
+        "@tanstack/react-query": "^4.29.19",
+        "@trpc/client": "^10.33.0",
+        "@trpc/react-query": "^10.33.0",
+        "@trpc/server": "^10.33.0",
         "expo": "^48.0.6",
         "expo-auth-session": "^4.0.3",
         "expo-random": "^13.0.0",
@@ -39,10 +39,10 @@
         "@babel/runtime": "^7.19.0",
         "@types/react": "^18.0.25",
         "@types/react-native": "~0.70.6",
-        "eslint": "^8.28.0",
-        "postcss": "^8.4.19",
-        "tailwindcss": "^3.2.4",
-        "typescript": "^4.9.3"
+        "eslint": "^8.43.0",
+        "postcss": "^8.4.24",
+        "tailwindcss": "^3.3.2",
+        "typescript": "^5.1.5"
     },
     "private": true
 }
