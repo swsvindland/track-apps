@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Layout from "../components/layout";
 import { HomeChart } from "../components/homeChart";
+import HomeTable from "../components/homeTable";
 
 const Home: NextPage = () => {
   return (
@@ -15,6 +16,7 @@ const Home: NextPage = () => {
         <main className="flex h-screen flex-col items-center">
           <div className="container">
             <HomeChart />
+            <HomeTable />
           </div>
         </main>
       </Layout>
