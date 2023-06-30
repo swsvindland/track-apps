@@ -26,4 +26,40 @@ export const bloodPressureRouter = router({
         },
       });
     }),
+
+  update: protectedProcedure
+    .input(
+      z.object({
+        id: z.number(),
+        systolic: z.number(),
+        diastolic: z.number(),
+        heartRate: z.number(),
+      }),
+    )
+    .mutation(({ ctx, input }) => {
+      return ctx.prisma.userBloodPressure.update({
+        where: {
+          id: input.id,
+        },
+        data: {
+          systolic: input.systolic,
+          diastolic: input.diastolic,
+          heartRate: input.heartRate,
+        },
+      });
+    }),
+
+  delete: protectedProcedure
+    .input(
+      z.object({
+        id: z.number(),
+      }),
+    )
+    .mutation(({ ctx, input }) => {
+      return ctx.prisma.userBloodPressure.delete({
+        where: {
+          id: input.id,
+        },
+      });
+    }),
 });

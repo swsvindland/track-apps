@@ -1,8 +1,15 @@
+import { useAuth } from "@clerk/nextjs";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Layout from "../components/layout";
+import { Login } from "../components/login";
 
 const Settings: NextPage = () => {
+  const { isSignedIn } = useAuth();
+
+  if (!isSignedIn) {
+    return <Login />;
+  }
   return (
     <>
       <Head>

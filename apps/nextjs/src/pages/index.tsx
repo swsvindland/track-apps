@@ -1,12 +1,19 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Layout from "../components/layout";
-import { BloodPressureChart } from "../components/bloodPressureChart";
 import HomeTable from "../components/homeTable";
 import { Create } from "../components/create";
 import { Charts } from "../components/charts";
+import { Login } from "../components/login";
+import { useAuth } from "@clerk/nextjs";
 
 const Home: NextPage = () => {
+  const { isSignedIn } = useAuth();
+
+  if (!isSignedIn) {
+    return <Login />;
+  }
+
   return (
     <>
       <Head>

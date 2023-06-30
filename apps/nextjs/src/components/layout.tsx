@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -42,14 +42,13 @@ export default function Layout(props: LayoutProps) {
 
   return (
     <div>
-      <Transition.Root show={sidebarOpen} as={Fragment}>
+      <Transition.Root show={sidebarOpen}>
         <Dialog
           as="div"
           className="relative z-50 lg:hidden"
           onClose={setSidebarOpen}
         >
           <Transition.Child
-            as={Fragment}
             enter="transition-opacity ease-linear duration-300"
             enterFrom="opacity-0"
             enterTo="opacity-100"
@@ -62,7 +61,6 @@ export default function Layout(props: LayoutProps) {
 
           <div className="fixed inset-0 flex">
             <Transition.Child
-              as={Fragment}
               enter="transition ease-in-out duration-300 transform"
               enterFrom="-translate-x-full"
               enterTo="translate-x-0"
@@ -72,7 +70,6 @@ export default function Layout(props: LayoutProps) {
             >
               <Dialog.Panel className="relative mr-16 flex w-full max-w-xs flex-1">
                 <Transition.Child
-                  as={Fragment}
                   enter="ease-in-out duration-300"
                   enterFrom="opacity-0"
                   enterTo="opacity-100"

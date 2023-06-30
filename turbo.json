@@ -17,6 +17,10 @@
       "dependsOn": ["^build", "^db-generate"],
       "outputs": [".next/**", ".expo/**"]
     },
+    "build:local": {
+      "dependsOn": ["^build", "^db-generate"],
+      "outputs": [".next/**", ".expo/**"]
+    },
     "lint": {
       "outputs": []
     },
