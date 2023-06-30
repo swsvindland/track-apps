@@ -13,7 +13,7 @@ export const bloodPressureRouter = router({
       z.object({
         systolic: z.number(),
         diastolic: z.number(),
-        heartRate: z.number(),
+        heartRate: z.number().optional(),
       }),
     )
     .mutation(({ ctx, input }) => {
