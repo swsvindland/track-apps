@@ -1,9 +1,21 @@
 import React, { FC, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import Dialog from "react-native-dialog";
+import { trpc } from "../utils/trpc";
+import { useAuth } from "@clerk/clerk-expo";
 
 export const DeleteAccount: FC = () => {
+  const utils = trpc.useContext();
+  const { signOut } = useAuth();
   const [visible, setVisible] = useState(false);
+
+  const deleteMutation = trpc.bloodPressure.deleteAll.useMutation({
+    onSuccess: () => {
+      setVisible(false);
+      utils.bloodPressure.invalidate();
+      signOut();
+    },
+  });
 
   const showDialog = () => {
     setVisible(true);
@@ -14,9 +26,7 @@ export const DeleteAccount: FC = () => {
   };
 
   const handleDelete = () => {
-    // The user has pressed the "Delete" button, so here you can do your own logic.
-    // ...Your logic
-    setVisible(false);
+    deleteMutation.mutate();
   };
 
   return (

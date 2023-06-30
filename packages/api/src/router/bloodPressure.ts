@@ -1,5 +1,6 @@
 import { router, protectedProcedure } from "../trpc";
 import { z } from "zod";
+import { clerkClient } from "@clerk/nextjs/server";
 
 export const bloodPressureRouter = router({
   all: protectedProcedure.query(({ ctx }) => {
@@ -82,4 +83,14 @@ export const bloodPressureRouter = router({
         },
       });
     }),
+
+  deleteAll: protectedProcedure.mutation(async ({ ctx }) => {
+    await clerkClient.users.deleteUser(ctx.auth.userId);
+
+    return ctx.prisma.userBloodPressure.deleteMany({
+      where: {
+        userId: ctx.auth.userId,
+      },
+    });
+  }),
 });
