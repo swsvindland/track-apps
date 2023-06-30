@@ -5,6 +5,9 @@ export const bloodPressureRouter = router({
   all: protectedProcedure.query(({ ctx }) => {
     return ctx.prisma.userBloodPressure.findMany({
       where: { userId: ctx.auth.userId },
+      orderBy: {
+        createdAt: "desc",
+      },
     });
   }),
 
