@@ -1,6 +1,7 @@
 import { SafeAreaView, View, Text, Pressable } from "react-native";
 import React from "react";
 import { useAuth } from "@clerk/clerk-expo";
+import { DeleteAccount } from "../components/deleteAccount";
 
 export const SettingsScreen = () => {
   const { signOut } = useAuth();
@@ -14,6 +15,8 @@ export const SettingsScreen = () => {
         >
           <Text className="text-white">Sign Out</Text>
         </Pressable>
+        <View className="h-4" />
+        <DeleteAccount />
       </View>
     </SafeAreaView>
   );
