@@ -1,9 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Layout from "../components/layout";
-import { HomeChart } from "../components/homeChart";
+import { BloodPressureChart } from "../components/bloodPressureChart";
 import HomeTable from "../components/homeTable";
 import { Create } from "../components/create";
+import { Charts } from "../components/charts";
 
 const Home: NextPage = () => {
   return (
@@ -16,7 +17,7 @@ const Home: NextPage = () => {
       <Layout>
         <main className="flex h-screen flex-col items-center">
           <div className="container grid grid-cols-1 gap-4">
-            <HomeChart />
+            <Charts />
             <HomeTable />
             <Create />
           </div>

@@ -13,7 +13,6 @@ import {
   type BubbleDataPoint,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
 import { trpc } from "../utils/trpc";
 
@@ -27,7 +26,7 @@ ChartJS.register(
   Legend,
 );
 
-export const HomeChart: FC = () => {
+export const HeartRateChart: FC = () => {
   const [data, setData] = useState<
     | ChartData<"line", (number | ScatterDataPoint | BubbleDataPoint | null)[]>
     | undefined
@@ -44,17 +43,11 @@ export const HomeChart: FC = () => {
       labels,
       datasets: [
         {
-          label: "Systolic",
-          data: userBloodPressureQuery.data?.map((item) => item.systolic) ?? [],
+          label: "Resting Heart Rate",
+          data:
+            userBloodPressureQuery.data?.map((item) => item.heartRate) ?? [],
           borderColor: "rgba(245, 158, 11, 1)",
           backgroundColor: "rgba(245, 158, 11, 0.1)",
-        },
-        {
-          label: "Diastolic",
-          data:
-            userBloodPressureQuery.data?.map((item) => item.diastolic) ?? [],
-          borderColor: "rgba(20, 184, 166, 1)",
-          backgroundColor: "rgba(20, 184, 166, 0.1)",
         },
       ],
     });
