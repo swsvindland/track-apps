@@ -44,7 +44,7 @@ const SignInWithOAuth = () => {
   }, []);
 
   return (
-    <View className="flex h-screen items-center justify-center gap-4">
+    <View className="flex h-full items-center justify-center gap-4">
       <View>
         <Text className="text-2xl font-bold">Sign In</Text>
       </View>
