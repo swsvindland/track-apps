@@ -1,8 +1,8 @@
 import React, { FC, useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import { View } from "react-native";
 import Dialog from "react-native-dialog";
 import { trpc } from "../utils/trpc";
-import { useQueryClient } from "@tanstack/react-query";
+import { BloodPressure } from "./gridList";
 
 interface State {
   systolic?: string;
@@ -10,46 +10,53 @@ interface State {
   heartRate?: string;
 }
 
-export const Create: FC = () => {
+interface Props {
+  visible: boolean;
+  setVisible: (visible: boolean) => void;
+  selected: BloodPressure;
+}
+
+export const Edit: FC<Props> = ({ visible, setVisible, selected }) => {
   const utils = trpc.useContext();
-  const [visible, setVisible] = useState(false);
   const [state, setState] = useState<State>({
-    systolic: undefined,
-    diastolic: undefined,
-    heartRate: undefined,
+    systolic: selected.systolic.toString(),
+    diastolic: selected.diastolic.toString(),
+    heartRate: selected.heartRate?.toString(),
   });
 
-  const createMutation = trpc.bloodPressure.create.useMutation({
+  const updateMutation = trpc.bloodPressure.update.useMutation({
     onSuccess: () => {
       setVisible(false);
       utils.bloodPressure.invalidate();
     },
   });
 
-  const showDialog = () => {
-    setVisible(true);
-  };
+  const deleteMutation = trpc.bloodPressure.delete.useMutation({
+    onSuccess: () => {
+      setVisible(false);
+      utils.bloodPressure.invalidate();
+    },
+  });
 
   const handleCancel = () => {
     setVisible(false);
   };
 
-  const handleCreate = async () => {
-    createMutation.mutate({
+  const handleUpdate = () => {
+    updateMutation.mutate({
+      id: selected.id,
       systolic: parseInt(state?.systolic ?? "0"),
       diastolic: parseInt(state?.diastolic ?? "0"),
       heartRate: state.heartRate ? parseInt(state.heartRate) : undefined,
     });
   };
 
+  const handleDelete = () => {
+    deleteMutation.mutate({ id: selected.id });
+  };
+
   return (
-    <View className="absolute bottom-4 right-4">
-      <Pressable
-        className="flex w-full items-center justify-center rounded-2xl bg-teal-500 p-4 shadow-2xl"
-        onPress={() => showDialog()}
-      >
-        <Text className="text-white">Create</Text>
-      </Pressable>
+    <View>
       <Dialog.Container visible={visible}>
         <Dialog.Title>Add New Entry</Dialog.Title>
         <Dialog.Description>
@@ -73,8 +80,9 @@ export const Create: FC = () => {
           keyboardType="numeric"
           onChangeText={(text) => setState({ ...state, heartRate: text })}
         />
+        <Dialog.Button label="Delete" onPress={handleDelete} />
         <Dialog.Button label="Cancel" onPress={handleCancel} />
-        <Dialog.Button label="Create" onPress={handleCreate} />
+        <Dialog.Button label="Update" onPress={handleUpdate} />
       </Dialog.Container>
     </View>
   );

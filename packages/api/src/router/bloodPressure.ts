@@ -20,6 +20,14 @@ export const bloodPressureRouter = router({
     });
   }),
 
+  single: protectedProcedure.input(z.number()).query(({ ctx, input }) => {
+    return ctx.prisma.userBloodPressure.findUnique({
+      where: {
+        id: input,
+      },
+    });
+  }),
+
   create: protectedProcedure
     .input(
       z.object({
@@ -42,10 +50,10 @@ export const bloodPressureRouter = router({
   update: protectedProcedure
     .input(
       z.object({
-        id: z.number(),
+        id: z.bigint(),
         systolic: z.number(),
         diastolic: z.number(),
-        heartRate: z.number(),
+        heartRate: z.number().optional(),
       }),
     )
     .mutation(({ ctx, input }) => {
@@ -64,7 +72,7 @@ export const bloodPressureRouter = router({
   delete: protectedProcedure
     .input(
       z.object({
-        id: z.number(),
+        id: z.bigint(),
       }),
     )
     .mutation(({ ctx, input }) => {
