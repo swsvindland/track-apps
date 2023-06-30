@@ -7,7 +7,7 @@ import { format } from "date-fns";
 export const HeartRateChart: FC = () => {
   const [data, setData] = useState<any>(null);
 
-  const userBloodPressureQuery = trpc.bloodPressure.all.useQuery();
+  const userBloodPressureQuery = trpc.bloodPressure.graph.useQuery();
 
   useMemo(() => {
     const labels = userBloodPressureQuery.data?.map((item) =>

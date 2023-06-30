@@ -11,6 +11,15 @@ export const bloodPressureRouter = router({
     });
   }),
 
+  graph: protectedProcedure.query(({ ctx }) => {
+    return ctx.prisma.userBloodPressure.findMany({
+      where: { userId: ctx.auth.userId },
+      orderBy: {
+        createdAt: "asc",
+      },
+    });
+  }),
+
   create: protectedProcedure
     .input(
       z.object({
