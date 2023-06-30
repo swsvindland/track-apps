@@ -2,8 +2,8 @@ import { FC } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   HomeIcon,
-  UsersIcon,
-  CalendarIcon,
+  Cog6ToothIcon,
+  ChartPieIcon,
 } from "react-native-heroicons/outline";
 import { HomeScreen } from "../screens/home";
 import { ReportsScreen } from "../screens/reports";
@@ -20,9 +20,9 @@ export const Layout: FC = () => {
             case "Home":
               return <HomeIcon color={color} size={size} />;
             case "Reports":
-              return <UsersIcon color={color} size={size} />;
+              return <ChartPieIcon color={color} size={size} />;
             case "Settings":
-              return <CalendarIcon color={color} size={size} />;
+              return <Cog6ToothIcon color={color} size={size} />;
             default:
               return null;
           }

@@ -4,20 +4,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { BloodPressureChart } from "../components/bloodPressureChart";
 
-// const SignOut = () => {
-//   const { signOut } = useAuth();
-//   return (
-//     <View className="rounded-lg border-2 border-gray-500 p-4">
-//       <Button
-//         title="Sign Out"
-//         onPress={() => {
-//           signOut();
-//         }}
-//       />
-//     </View>
-//   );
-// };
-//
 // const PostCard: React.FC<{
 //   post: inferProcedureOutput<AppRouter["post"]["all"]>[number];
 // }> = ({ post }) => {
