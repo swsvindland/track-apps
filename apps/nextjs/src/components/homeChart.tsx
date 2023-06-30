@@ -65,7 +65,7 @@ export const HomeChart: FC = () => {
   }
 
   return (
-    <div className="card w-full rounded p-4 shadow">
+    <div className="card w-full rounded-2xl p-4 shadow-2xl">
       {(data.datasets.at(0)?.data.length ?? 0) > 0 ? (
         <Line data={data} />
       ) : (

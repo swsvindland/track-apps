@@ -9,12 +9,19 @@ export const bloodPressureRouter = router({
   }),
 
   create: protectedProcedure
-    .input(z.object({ systolic: z.number(), diastolic: z.number() }))
+    .input(
+      z.object({
+        systolic: z.number(),
+        diastolic: z.number(),
+        heartRate: z.number(),
+      }),
+    )
     .mutation(({ ctx, input }) => {
       return ctx.prisma.userBloodPressure.create({
         data: {
           systolic: input.systolic,
           diastolic: input.diastolic,
+          heartRate: input.heartRate,
           userId: ctx.auth.userId,
         },
       });

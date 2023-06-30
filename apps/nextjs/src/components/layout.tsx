@@ -1,32 +1,18 @@
 import { Fragment, ReactNode, useState } from "react";
-import { Dialog, Menu, Transition } from "@headlessui/react";
+import { Dialog, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
   BellIcon,
-  CalendarIcon,
   ChartPieIcon,
   Cog6ToothIcon,
-  DocumentDuplicateIcon,
-  FolderIcon,
   HomeIcon,
-  UsersIcon,
   XMarkIcon,
-  ChevronDownIcon,
 } from "@heroicons/react/24/outline";
-import { useAuth, UserButton } from "@clerk/nextjs";
+import { UserButton } from "@clerk/nextjs";
 
 const navigation = [
   { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Team", href: "#", icon: UsersIcon, current: false },
-  { name: "Projects", href: "#", icon: FolderIcon, current: false },
-  { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-  { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
   { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
-];
-
-const userNavigation = [
-  { name: "Your profile", href: "#" },
-  { name: "Sign out", href: "#" },
 ];
 
 function classNames(...classes: string[]) {
@@ -242,47 +228,16 @@ export default function Layout(props: LayoutProps) {
                 className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200"
                 aria-hidden="true"
               />
-
-              {/* Profile dropdown */}
-              <Menu as="div" className="relative">
-                <UserButton
-                  appearance={{
-                    elements: {
-                      userButtonAvatarBox: {
-                        width: 32,
-                        height: 32,
-                      },
+              <UserButton
+                appearance={{
+                  elements: {
+                    userButtonAvatarBox: {
+                      width: 32,
+                      height: 32,
                     },
-                  }}
-                />
-                <Transition
-                  as={Fragment}
-                  enter="transition ease-out duration-100"
-                  enterFrom="transform opacity-0 scale-95"
-                  enterTo="transform opacity-100 scale-100"
-                  leave="transition ease-in duration-75"
-                  leaveFrom="transform opacity-100 scale-100"
-                  leaveTo="transform opacity-0 scale-95"
-                >
-                  <Menu.Items className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
-                    {userNavigation.map((item) => (
-                      <Menu.Item key={item.name}>
-                        {({ active }) => (
-                          <a
-                            href={item.href}
-                            className={classNames(
-                              active ? "bg-gray-50" : "",
-                              "block px-3 py-1 text-sm leading-6 text-gray-900",
-                            )}
-                          >
-                            {item.name}
-                          </a>
-                        )}
-                      </Menu.Item>
-                    ))}
-                  </Menu.Items>
-                </Transition>
-              </Menu>
+                  },
+                }}
+              />
             </div>
           </div>
         </div>

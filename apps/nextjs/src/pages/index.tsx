@@ -3,6 +3,7 @@ import Head from "next/head";
 import Layout from "../components/layout";
 import { HomeChart } from "../components/homeChart";
 import HomeTable from "../components/homeTable";
+import { Create } from "../components/create";
 
 const Home: NextPage = () => {
   return (
@@ -14,9 +15,10 @@ const Home: NextPage = () => {
       </Head>
       <Layout>
         <main className="flex h-screen flex-col items-center">
-          <div className="container">
+          <div className="container grid grid-cols-1 gap-4">
             <HomeChart />
             <HomeTable />
+            <Create />
           </div>
         </main>
       </Layout>
