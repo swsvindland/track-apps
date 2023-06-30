@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useState } from "react";
+import { Fragment, ReactNode, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -9,10 +9,11 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { UserButton } from "@clerk/nextjs";
+import { useRouter } from "next/router";
 
-const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
+const defaultNavigation = [
+  { name: "Dashboard", href: "/", icon: HomeIcon, current: true },
+  { name: "Reports", href: "/reports", icon: ChartPieIcon, current: false },
 ];
 
 function classNames(...classes: string[]) {
@@ -25,6 +26,19 @@ interface LayoutProps {
 
 export default function Layout(props: LayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [navigation, setNavigation] = useState(defaultNavigation);
+  const router = useRouter();
+
+  useEffect(() => {
+    setNavigation(
+      navigation.map((item) => {
+        return {
+          ...item,
+          current: router.pathname === item.href,
+        };
+      }),
+    );
+  }, [navigation, router.pathname]);
 
   return (
     <div>
@@ -121,8 +135,13 @@ export default function Layout(props: LayoutProps) {
                       </li>
                       <li className="mt-auto">
                         <a
-                          href="#"
-                          className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600"
+                          href="/settings"
+                          className={classNames(
+                            router.pathname === "/settings"
+                              ? "bg-gray-50 text-indigo-600"
+                              : "text-gray-700 hover:bg-gray-50 hover:text-indigo-600",
+                            "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6",
+                          )}
                         >
                           <Cog6ToothIcon
                             className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600"
@@ -183,8 +202,13 @@ export default function Layout(props: LayoutProps) {
               </li>
               <li className="mt-auto">
                 <a
-                  href="#"
-                  className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600"
+                  href="/settings"
+                  className={classNames(
+                    router.pathname === "/settings"
+                      ? "bg-gray-50 text-indigo-600"
+                      : "text-gray-700 hover:bg-gray-50 hover:text-indigo-600",
+                    "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6",
+                  )}
                 >
                   <Cog6ToothIcon
                     className="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600"

@@ -23,7 +23,7 @@ model UserBloodPressure {
     userId    String
     systolic  Int
     diastolic Int
-    heatRate  Int?
+    heartRate Int?
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
