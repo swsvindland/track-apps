@@ -2,32 +2,32 @@ import React, { FC, useState } from "react";
 import { View } from "react-native";
 import Dialog from "react-native-dialog";
 import { trpc } from "../../utils/trpc";
-import { Weight } from "./gridList";
+import { Height } from "./gridList";
 
 interface State {
-  weight?: string;
+  height?: string;
 }
 
 interface Props {
   visible: boolean;
   setVisible: (visible: boolean) => void;
-  selected: Weight;
+  selected: Height;
 }
 
 export const Edit: FC<Props> = ({ visible, setVisible, selected }) => {
   const utils = trpc.useContext();
   const [state, setState] = useState<State>({
-    weight: selected.weight.toString(),
+    height: selected.height.toString(),
   });
 
-  const updateMutation = trpc.weight.update.useMutation({
+  const updateMutation = trpc.height.update.useMutation({
     onSuccess: () => {
       setVisible(false);
       utils.bloodPressure.invalidate();
     },
   });
 
-  const deleteMutation = trpc.weight.delete.useMutation({
+  const deleteMutation = trpc.height.delete.useMutation({
     onSuccess: () => {
       setVisible(false);
       utils.bloodPressure.invalidate();
@@ -41,7 +41,7 @@ export const Edit: FC<Props> = ({ visible, setVisible, selected }) => {
   const handleUpdate = () => {
     updateMutation.mutate({
       id: selected.id,
-      weight: parseFloat(state?.weight ?? "0"),
+      height: parseFloat(state?.height ?? "0"),
     });
   };
 
@@ -57,10 +57,10 @@ export const Edit: FC<Props> = ({ visible, setVisible, selected }) => {
           Create a new blood pressure entry.
         </Dialog.Description>
         <Dialog.Input
-          value={state.weight}
+          value={state.height}
           placeholder="Weight"
           keyboardType="numeric"
-          onChangeText={(text) => setState({ ...state, weight: text })}
+          onChangeText={(text) => setState({ ...state, height: text })}
         />
         <Dialog.Button label="Delete" onPress={handleDelete} />
         <Dialog.Button label="Cancel" onPress={handleCancel} />

@@ -4,11 +4,13 @@ import {
   HomeIcon,
   Cog6ToothIcon,
   ChartPieIcon,
+  ArrowLongUpIcon,
 } from "react-native-heroicons/outline";
 import { HomeScreen } from "../screens/home";
 import { ReportsScreen } from "../screens/reports";
 import { SettingsScreen } from "../screens/settings";
 import { useColorScheme } from "react-native";
+import { HeightScreen } from "../screens/height";
 
 const Tab = createBottomTabNavigator();
 
@@ -22,6 +24,8 @@ export const Layout: FC = () => {
           switch (route.name) {
             case "Home":
               return <HomeIcon color={color} size={size} />;
+            case "Height":
+              return <ArrowLongUpIcon color={color} size={size} />;
             case "Reports":
               return <ChartPieIcon color={color} size={size} />;
             case "Settings":
@@ -41,6 +45,17 @@ export const Layout: FC = () => {
         name="Home"
         component={HomeScreen}
         navigationKey="home"
+        options={{
+          headerStyle: {
+            backgroundColor: colorScheme === "dark" ? "#262626" : "#fff",
+          },
+          headerTintColor: colorScheme === "dark" ? "#fff" : "#000",
+        }}
+      />
+      <Tab.Screen
+        name="Height"
+        component={HeightScreen}
+        navigationKey="height"
         options={{
           headerStyle: {
             backgroundColor: colorScheme === "dark" ? "#262626" : "#fff",

@@ -4,13 +4,13 @@ import { trpc } from "../../utils/trpc";
 import { FC, useMemo, useState } from "react";
 import { format } from "date-fns";
 
-export const WeightChart: FC = () => {
+export const HeightChart: FC = () => {
   const colorScheme = useColorScheme();
   // react-native-chart-kit does not export its data type
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [data, setData] = useState<any>(null);
 
-  const userWeightsQuery = trpc.weight.graph.useQuery();
+  const userWeightsQuery = trpc.height.graph.useQuery();
 
   useMemo(() => {
     const labels = userWeightsQuery.data?.map((item) =>
@@ -21,11 +21,11 @@ export const WeightChart: FC = () => {
       labels,
       datasets: [
         {
-          data: userWeightsQuery.data?.map((item) => item.weight) ?? [],
+          data: userWeightsQuery.data?.map((item) => item.height) ?? [],
           color: () => "#d946ef", // optional
         },
       ],
-      legend: ["Weight"],
+      legend: ["Height"],
     });
   }, [userWeightsQuery.data]);
 
@@ -36,7 +36,7 @@ export const WeightChart: FC = () => {
   return (
     <View>
       <Text className="text-center text-lg font-bold dark:text-white">
-        Weights
+        Heights
       </Text>
       {(userWeightsQuery.data?.length ?? 0) > 0 ? (
         <LineChart

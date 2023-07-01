@@ -4,20 +4,20 @@ import Dialog from "react-native-dialog";
 import { trpc } from "../../utils/trpc";
 
 interface State {
-  weight?: string;
+  height?: string;
 }
 
 export const Create: FC = () => {
   const utils = trpc.useContext();
   const [visible, setVisible] = useState(false);
   const [state, setState] = useState<State>({
-    weight: undefined,
+    height: undefined,
   });
 
-  const createMutation = trpc.weight.create.useMutation({
+  const createMutation = trpc.height.create.useMutation({
     onSuccess: () => {
       setVisible(false);
-      utils.weight.invalidate();
+      utils.height.invalidate();
     },
   });
 
@@ -31,7 +31,7 @@ export const Create: FC = () => {
 
   const handleCreate = async () => {
     createMutation.mutate({
-      weight: parseFloat(state?.weight ?? "0"),
+      height: parseFloat(state?.height ?? "0"),
     });
   };
 
@@ -49,10 +49,10 @@ export const Create: FC = () => {
           Create a new blood pressure entry.
         </Dialog.Description>
         <Dialog.Input
-          value={state.weight}
-          placeholder="Weight"
+          value={state.height}
+          placeholder="Height"
           keyboardType="numeric"
-          onChangeText={(text) => setState({ ...state, weight: text })}
+          onChangeText={(text) => setState({ ...state, height: text })}
         />
         <Dialog.Button label="Cancel" onPress={handleCancel} />
         <Dialog.Button label="Create" onPress={handleCreate} />

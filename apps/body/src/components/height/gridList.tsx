@@ -4,16 +4,16 @@ import { Pressable, ScrollView, Text, View } from "react-native";
 import { format } from "date-fns";
 import { Edit } from "./edit";
 
-export interface Weight {
+export interface Height {
   id: bigint;
-  weight: number;
+  height: number;
 }
 
 export const GridList: FC = () => {
   const [visible, setVisible] = useState(false);
-  const [selected, setSelected] = useState<Weight | undefined>(undefined);
+  const [selected, setSelected] = useState<Height | undefined>(undefined);
 
-  const userWeightsQuery = trpc.weight.all.useQuery();
+  const userWeightsQuery = trpc.height.all.useQuery();
 
   useMemo(() => {
     if (selected && !visible) {
@@ -25,7 +25,7 @@ export const GridList: FC = () => {
     return <Text>Loading...</Text>;
   }
 
-  const handleEdit = (item: Weight) => {
+  const handleEdit = (item: Height) => {
     setSelected(item);
     setVisible(true);
   };
@@ -44,9 +44,9 @@ export const GridList: FC = () => {
           <View className="my-2 border border-b border-gray-300" />
           <View className="flex flex-row items-center">
             <Text className="mr-2 text-lg font-bold dark:text-white">
-              Weight:
+              Height:
             </Text>
-            <Text className="text-lg dark:text-white">{item.weight}</Text>
+            <Text className="text-lg dark:text-white">{item.height}</Text>
           </View>
         </Pressable>
       ))}

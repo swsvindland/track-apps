@@ -2,9 +2,9 @@ import { router, protectedProcedure } from "../trpc";
 import { z } from "zod";
 import { clerkClient } from "@clerk/nextjs/server";
 
-export const bodyRouter = router({
-  allWeights: protectedProcedure.query(({ ctx }) => {
-    return ctx.prisma.userWeight.findMany({
+export const heightRouter = router({
+  all: protectedProcedure.query(({ ctx }) => {
+    return ctx.prisma.userHeight.findMany({
       where: { userId: ctx.auth.userId },
       orderBy: {
         createdAt: "desc",
@@ -12,8 +12,8 @@ export const bodyRouter = router({
     });
   }),
 
-  graphWeights: protectedProcedure.query(({ ctx }) => {
-    return ctx.prisma.userWeight.findMany({
+  graph: protectedProcedure.query(({ ctx }) => {
+    return ctx.prisma.userHeight.findMany({
       take: 5,
       where: { userId: ctx.auth.userId },
       orderBy: {
@@ -22,24 +22,24 @@ export const bodyRouter = router({
     });
   }),
 
-  singleWeight: protectedProcedure.input(z.number()).query(({ ctx, input }) => {
-    return ctx.prisma.userWeight.findUnique({
+  single: protectedProcedure.input(z.number()).query(({ ctx, input }) => {
+    return ctx.prisma.userHeight.findUnique({
       where: {
         id: input,
       },
     });
   }),
 
-  createWeight: protectedProcedure
+  create: protectedProcedure
     .input(
       z.object({
-        weight: z.number(),
+        height: z.number(),
       }),
     )
     .mutation(({ ctx, input }) => {
-      return ctx.prisma.userWeight.create({
+      return ctx.prisma.userHeight.create({
         data: {
-          weight: input.weight,
+          height: input.height,
           userId: ctx.auth.userId,
         },
       });
@@ -49,16 +49,16 @@ export const bodyRouter = router({
     .input(
       z.object({
         id: z.bigint(),
-        weight: z.number(),
+        height: z.number(),
       }),
     )
     .mutation(({ ctx, input }) => {
-      return ctx.prisma.userWeight.update({
+      return ctx.prisma.userHeight.update({
         where: {
           id: input.id,
         },
         data: {
-          weight: input.weight,
+          height: input.height,
         },
       });
     }),
@@ -70,7 +70,7 @@ export const bodyRouter = router({
       }),
     )
     .mutation(({ ctx, input }) => {
-      return ctx.prisma.userWeight.delete({
+      return ctx.prisma.userHeight.delete({
         where: {
           id: input.id,
         },
@@ -80,7 +80,7 @@ export const bodyRouter = router({
   deleteAll: protectedProcedure.mutation(async ({ ctx }) => {
     await clerkClient.users.deleteUser(ctx.auth.userId);
 
-    return ctx.prisma.userWeight.deleteMany({
+    return ctx.prisma.userHeight.deleteMany({
       where: {
         userId: ctx.auth.userId,
       },

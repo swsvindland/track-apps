@@ -2,13 +2,15 @@ import { router } from "../trpc";
 import { postRouter } from "./post";
 import { authRouter } from "./auth";
 import { bloodPressureRouter } from "./bloodPressure";
-import { bodyRouter } from "./body";
+import { weightRouter } from "./weight";
+import { heightRouter } from "./height";
 
 export const appRouter = router({
   post: postRouter,
   auth: authRouter,
   bloodPressure: bloodPressureRouter,
-  body: bodyRouter,
+  weight: weightRouter,
+  height: heightRouter,
 });
 
 // export type definition of API

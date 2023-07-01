@@ -35,3 +35,20 @@ model UserWeight {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
+
+model UserHeight {
+    id        BigInt   @id @default(autoincrement())
+    userId    String
+    height    Float
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model UserSettings {
+    id        BigInt   @id @default(autoincrement())
+    userId    String
+    unit      String
+    sex       String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
