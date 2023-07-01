@@ -1,27 +1,23 @@
 import React, { FC, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import Dialog from "react-native-dialog";
-import { trpc } from "../utils/trpc";
+import { trpc } from "../../utils/trpc";
 
 interface State {
-  systolic?: string;
-  diastolic?: string;
-  heartRate?: string;
+  weight?: string;
 }
 
 export const Create: FC = () => {
   const utils = trpc.useContext();
   const [visible, setVisible] = useState(false);
   const [state, setState] = useState<State>({
-    systolic: undefined,
-    diastolic: undefined,
-    heartRate: undefined,
+    weight: undefined,
   });
 
-  const createMutation = trpc.bloodPressure.create.useMutation({
+  const createMutation = trpc.body.createWeight.useMutation({
     onSuccess: () => {
       setVisible(false);
-      utils.bloodPressure.invalidate();
+      utils.body.invalidate();
     },
   });
 
@@ -35,9 +31,7 @@ export const Create: FC = () => {
 
   const handleCreate = async () => {
     createMutation.mutate({
-      systolic: parseInt(state?.systolic ?? "0"),
-      diastolic: parseInt(state?.diastolic ?? "0"),
-      heartRate: state.heartRate ? parseInt(state.heartRate) : undefined,
+      weight: parseFloat(state?.weight ?? "0"),
     });
   };
 
@@ -55,22 +49,10 @@ export const Create: FC = () => {
           Create a new blood pressure entry.
         </Dialog.Description>
         <Dialog.Input
-          value={state.systolic}
-          placeholder="Systolic"
+          value={state.weight}
+          placeholder="Weight"
           keyboardType="numeric"
-          onChangeText={(text) => setState({ ...state, systolic: text })}
-        />
-        <Dialog.Input
-          value={state.diastolic}
-          placeholder="Diastolic"
-          keyboardType="numeric"
-          onChangeText={(text) => setState({ ...state, diastolic: text })}
-        />
-        <Dialog.Input
-          value={state.heartRate}
-          placeholder="Heart Rate"
-          keyboardType="numeric"
-          onChangeText={(text) => setState({ ...state, heartRate: text })}
+          onChangeText={(text) => setState({ ...state, weight: text })}
         />
         <Dialog.Button label="Cancel" onPress={handleCancel} />
         <Dialog.Button label="Create" onPress={handleCreate} />

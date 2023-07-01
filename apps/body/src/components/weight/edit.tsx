@@ -1,37 +1,33 @@
 import React, { FC, useState } from "react";
 import { View } from "react-native";
 import Dialog from "react-native-dialog";
-import { trpc } from "../utils/trpc";
-import { BloodPressure } from "./gridList";
+import { trpc } from "../../utils/trpc";
+import { Weight } from "./gridList";
 
 interface State {
-  systolic?: string;
-  diastolic?: string;
-  heartRate?: string;
+  weight?: string;
 }
 
 interface Props {
   visible: boolean;
   setVisible: (visible: boolean) => void;
-  selected: BloodPressure;
+  selected: Weight;
 }
 
 export const Edit: FC<Props> = ({ visible, setVisible, selected }) => {
   const utils = trpc.useContext();
   const [state, setState] = useState<State>({
-    systolic: selected.systolic.toString(),
-    diastolic: selected.diastolic.toString(),
-    heartRate: selected.heartRate?.toString(),
+    weight: selected.weight.toString(),
   });
 
-  const updateMutation = trpc.bloodPressure.update.useMutation({
+  const updateMutation = trpc.body.update.useMutation({
     onSuccess: () => {
       setVisible(false);
       utils.bloodPressure.invalidate();
     },
   });
 
-  const deleteMutation = trpc.bloodPressure.delete.useMutation({
+  const deleteMutation = trpc.body.delete.useMutation({
     onSuccess: () => {
       setVisible(false);
       utils.bloodPressure.invalidate();
@@ -45,9 +41,7 @@ export const Edit: FC<Props> = ({ visible, setVisible, selected }) => {
   const handleUpdate = () => {
     updateMutation.mutate({
       id: selected.id,
-      systolic: parseInt(state?.systolic ?? "0"),
-      diastolic: parseInt(state?.diastolic ?? "0"),
-      heartRate: state.heartRate ? parseInt(state.heartRate) : undefined,
+      weight: parseFloat(state?.weight ?? "0"),
     });
   };
 
@@ -63,22 +57,10 @@ export const Edit: FC<Props> = ({ visible, setVisible, selected }) => {
           Create a new blood pressure entry.
         </Dialog.Description>
         <Dialog.Input
-          value={state.systolic}
-          placeholder="Systolic"
+          value={state.weight}
+          placeholder="Weight"
           keyboardType="numeric"
-          onChangeText={(text) => setState({ ...state, systolic: text })}
-        />
-        <Dialog.Input
-          value={state.diastolic}
-          placeholder="Diastolic"
-          keyboardType="numeric"
-          onChangeText={(text) => setState({ ...state, diastolic: text })}
-        />
-        <Dialog.Input
-          value={state.heartRate}
-          placeholder="Heart Rate"
-          keyboardType="numeric"
-          onChangeText={(text) => setState({ ...state, heartRate: text })}
+          onChangeText={(text) => setState({ ...state, weight: text })}
         />
         <Dialog.Button label="Delete" onPress={handleDelete} />
         <Dialog.Button label="Cancel" onPress={handleCancel} />

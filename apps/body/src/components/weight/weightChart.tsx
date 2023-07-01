@@ -1,19 +1,19 @@
 import { Dimensions, Text, useColorScheme, View } from "react-native";
 import { LineChart } from "react-native-chart-kit";
-import { trpc } from "../utils/trpc";
+import { trpc } from "../../utils/trpc";
 import { FC, useMemo, useState } from "react";
 import { format } from "date-fns";
 
-export const BloodPressureChart: FC = () => {
+export const WeightChart: FC = () => {
   const colorScheme = useColorScheme();
   // react-native-chart-kit does not export its data type
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [data, setData] = useState<any>(null);
 
-  const userBloodPressureQuery = trpc.bloodPressure.graph.useQuery();
+  const userWeightsQuery = trpc.body.graphWeights.useQuery();
 
   useMemo(() => {
-    const labels = userBloodPressureQuery.data?.map((item) =>
+    const labels = userWeightsQuery.data?.map((item) =>
       format(new Date(item.createdAt), "MM/dd"),
     );
 
@@ -21,29 +21,24 @@ export const BloodPressureChart: FC = () => {
       labels,
       datasets: [
         {
-          data: userBloodPressureQuery.data?.map((item) => item.systolic) ?? [],
+          data: userWeightsQuery.data?.map((item) => item.weight) ?? [],
           color: () => "#d946ef", // optional
         },
-        {
-          data:
-            userBloodPressureQuery.data?.map((item) => item.diastolic) ?? [],
-          color: () => "#ec4899", // optional
-        },
       ],
-      legend: ["Systolic", "Diastolic"],
+      legend: ["Weight"],
     });
-  }, [userBloodPressureQuery.data]);
+  }, [userWeightsQuery.data]);
 
-  if (userBloodPressureQuery.isLoading) {
+  if (userWeightsQuery.isLoading) {
     return <Text>Loading...</Text>;
   }
 
   return (
     <View>
       <Text className="text-center text-lg font-bold dark:text-white">
-        Blood Pressure
+        Weights
       </Text>
-      {(userBloodPressureQuery.data?.length ?? 0) > 0 ? (
+      {(userWeightsQuery.data?.length ?? 0) > 0 ? (
         <LineChart
           data={data}
           width={Dimensions.get("window").width - 16} // from react-native
