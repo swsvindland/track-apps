@@ -4,6 +4,7 @@ const CLERK_PUBLISHABLE_KEY =
   "pk_test_c2F2ZWQtbGVvcGFyZC01NC5jbGVyay5hY2NvdW50cy5kZXYk";
 
 const defineConfig = (): ExpoConfig => ({
+  owner: "swsvindland",
   name: "Blood Pressure Track",
   slug: "bp-track",
   scheme: "bp-track",
