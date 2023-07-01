@@ -6,6 +6,7 @@ const CLERK_PUBLISHABLE_KEY =
 const defineConfig = (): ExpoConfig => ({
   name: "Blood Pressure Track",
   slug: "bp-track",
+  scheme: "bp-track",
   version: "2.0.0",
   orientation: "portrait",
   icon: "./assets/icon.png",
