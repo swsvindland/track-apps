@@ -40,23 +40,31 @@ export const GridList: FC = () => {
         <Pressable
           key={item.id.toString()}
           onPress={() => handleEdit(item)}
-          className="my-4 rounded-2xl bg-white p-4 shadow"
+          className="my-4 rounded-2xl bg-white p-4 shadow dark:bg-neutral-700"
         >
-          <Text className="text-xl font-bold">
+          <Text className="text-xl font-bold dark:text-white">
             {format(item.createdAt, "PP")}
           </Text>
           <View className="my-2 border border-b border-gray-300" />
           <View className="flex flex-row items-center">
-            <Text className="mr-2 text-lg font-bold">Systolic:</Text>
-            <Text className="text-lg">{item.systolic}</Text>
+            <Text className="mr-2 text-lg font-bold dark:text-white">
+              Systolic:
+            </Text>
+            <Text className="text-lg dark:text-white">{item.systolic}</Text>
           </View>
           <View className="flex flex-row items-center">
-            <Text className="mr-2 text-lg font-bold">Diastolic:</Text>
-            <Text className="text-lg">{item.diastolic}</Text>
+            <Text className="mr-2 text-lg font-bold dark:text-white">
+              Diastolic:
+            </Text>
+            <Text className="text-lg dark:text-white dark:text-white">
+              {item.diastolic}
+            </Text>
           </View>
           <View className="flex flex-row items-center">
-            <Text className="mr-2 text-lg font-bold">Heart Rate:</Text>
-            <Text className="text-lg">{item.heartRate}</Text>
+            <Text className="mr-2 text-lg font-bold dark:text-white">
+              Heart Rate:
+            </Text>
+            <Text className="text-lg dark:text-white">{item.heartRate}</Text>
           </View>
         </Pressable>
       ))}

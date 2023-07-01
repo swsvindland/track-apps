@@ -20,10 +20,12 @@ const defineConfig = (): ExpoConfig => ({
   },
   assetBundlePatterns: ["**/*"],
   ios: {
+    userInterfaceStyle: "automatic",
     supportsTablet: true,
     bundleIdentifier: "com.svindland.bptrack",
   },
   android: {
+    userInterfaceStyle: "automatic",
     adaptiveIcon: {
       foregroundImage: "./assets/icon.png",
       backgroundColor: "#fff",

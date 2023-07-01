@@ -32,10 +32,12 @@ export const DeleteAccount: FC = () => {
   return (
     <View>
       <Pressable
-        className="flex w-full items-center justify-center rounded-2xl bg-red-500 p-4 shadow-2xl"
+        className="flex w-full items-center justify-center rounded-full border border-rose-400 bg-white p-4 dark:bg-black"
         onPress={() => showDialog()}
       >
-        <Text className="text-white">Delete Account</Text>
+        <Text className="text-lg font-bold uppercase text-rose-400">
+          Delete Account
+        </Text>
       </Pressable>
       <Dialog.Container visible={visible}>
         <Dialog.Title>Account delete</Dialog.Title>

@@ -7,7 +7,7 @@ import SignInWithOAuth from "../components/SignInWithOAuth";
 export const SignInSignUpScreen = () => {
   return (
     <SafeAreaView>
-      <View className="h-full w-full p-4">
+      <View className="h-full w-full px-2 dark:bg-black">
         <SignInWithOAuth />
       </View>
     </SafeAreaView>

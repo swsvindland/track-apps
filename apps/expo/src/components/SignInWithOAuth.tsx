@@ -1,6 +1,6 @@
 import { useOAuth } from "@clerk/clerk-expo";
 import React from "react";
-import { Text, Pressable, View } from "react-native";
+import { Text, Pressable, View, Image } from "react-native";
 import { useWarmUpBrowser } from "../hooks/useWarmUpBrowser";
 
 const SignInWithOAuth = () => {
@@ -44,21 +44,25 @@ const SignInWithOAuth = () => {
   }, []);
 
   return (
-    <View className="flex h-full items-center justify-center gap-4">
+    <View className="flex h-full items-center justify-center gap-4 px-2">
       <View>
-        <Text className="text-2xl font-bold">Sign In</Text>
+        <Image source={require("../images/logo.png")} style={{ height: 128 }} />
       </View>
       <Pressable
-        className="flex w-full items-center justify-center rounded-2xl bg-teal-500 p-4 shadow-2xl"
+        className="flex w-full items-center justify-center rounded-full bg-rose-400 p-4"
         onPress={handleSignInWithApplePress}
       >
-        <Text className="text-white">Sign In with Apple</Text>
+        <Text className="text-lg font-bold uppercase text-white">
+          Sign In with Apple
+        </Text>
       </Pressable>
       <Pressable
-        className="flex w-full items-center justify-center rounded-2xl bg-teal-500 p-4 shadow-2xl"
+        className="flex w-full items-center justify-center rounded-full bg-rose-400 p-4"
         onPress={handleSignInWithGooglePress}
       >
-        <Text className="text-white">Sign In with Google</Text>
+        <Text className="text-lg font-bold uppercase text-white">
+          Sign In with Google
+        </Text>
       </Pressable>
     </View>
   );

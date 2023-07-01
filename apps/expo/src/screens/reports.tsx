@@ -6,7 +6,7 @@ import { HeartRateChart } from "../components/heartRateChart";
 export const ReportsScreen = () => {
   return (
     <SafeAreaView>
-      <ScrollView className="h-full w-full p-4">
+      <ScrollView className="h-full w-full px-2 pt-4 dark:bg-black">
         <BloodPressureChart />
         <HeartRateChart />
       </ScrollView>

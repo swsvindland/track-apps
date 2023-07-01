@@ -8,7 +8,7 @@ import { GridList } from "../components/gridList";
 export const HomeScreen = () => {
   return (
     <SafeAreaView>
-      <View className="h-full w-full p-4">
+      <View className="h-full w-full px-2 pt-4 dark:bg-black">
         <BloodPressureChart />
         <GridList />
         <Create />

@@ -1,10 +1,11 @@
-import { Dimensions, Text, View } from "react-native";
+import { Dimensions, Text, useColorScheme, View } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import { trpc } from "../utils/trpc";
 import { FC, useMemo, useState } from "react";
 import { format } from "date-fns";
 
 export const BloodPressureChart: FC = () => {
+  const colorScheme = useColorScheme();
   // react-native-chart-kit does not export its data type
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [data, setData] = useState<any>(null);
@@ -13,7 +14,7 @@ export const BloodPressureChart: FC = () => {
 
   useMemo(() => {
     const labels = userBloodPressureQuery.data?.map((item) =>
-      format(new Date(item.createdAt), "PP"),
+      format(new Date(item.createdAt), "MM/dd"),
     );
 
     setData({
@@ -21,14 +22,15 @@ export const BloodPressureChart: FC = () => {
       datasets: [
         {
           data: userBloodPressureQuery.data?.map((item) => item.systolic) ?? [],
-          color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`, // optional
+          color: () => "#d946ef", // optional
         },
         {
           data:
             userBloodPressureQuery.data?.map((item) => item.diastolic) ?? [],
-          color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`, // optional
+          color: () => "#ec4899", // optional
         },
       ],
+      legend: ["Systolic", "Diastolic"],
     });
   }, [userBloodPressureQuery.data]);
 
@@ -38,27 +40,29 @@ export const BloodPressureChart: FC = () => {
 
   return (
     <View>
-      <Text className="text-center text-lg font-bold">Blood Pressure</Text>
+      <Text className="text-center text-lg font-bold dark:text-white">
+        Blood Pressure
+      </Text>
       {(userBloodPressureQuery.data?.length ?? 0) > 0 ? (
         <LineChart
           data={data}
-          width={Dimensions.get("window").width - 32} // from react-native
+          width={Dimensions.get("window").width - 16} // from react-native
           height={220}
           yAxisInterval={1} // optional, defaults to 1
           chartConfig={{
-            backgroundColor: "#e26a00",
-            backgroundGradientFrom: "#fb8c00",
-            backgroundGradientTo: "#ffa726",
+            backgroundColor: colorScheme === "dark" ? "#404040" : "#fff",
+            backgroundGradientFrom: colorScheme === "dark" ? "#404040" : "#fff",
+            backgroundGradientTo: colorScheme === "dark" ? "#404040" : "#fff",
             decimalPlaces: 0, // optional, defaults to 2dp
-            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-            labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+            color: () => (colorScheme === "dark" ? "#fff" : "#000"),
+            labelColor: () => (colorScheme === "dark" ? "#fff" : "#000"),
             style: {
               borderRadius: 16,
             },
             propsForDots: {
               r: "6",
               strokeWidth: "2",
-              stroke: "#ffa726",
+              stroke: colorScheme === "dark" ? "#fff" : "#000",
             },
           }}
           style={{

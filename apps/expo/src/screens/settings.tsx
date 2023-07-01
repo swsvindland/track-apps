@@ -8,12 +8,14 @@ export const SettingsScreen = () => {
 
   return (
     <SafeAreaView>
-      <View className="h-full w-full p-4">
+      <View className="h-full w-full px-2 pt-4 dark:bg-black">
         <Pressable
-          className="flex w-full items-center justify-center rounded-2xl bg-teal-500 p-4 shadow-2xl"
+          className="flex w-full items-center justify-center rounded-full bg-rose-400 p-4"
           onPress={() => signOut()}
         >
-          <Text className="text-white">Sign Out</Text>
+          <Text className="text-lg font-bold uppercase text-white">
+            Sign Out
+          </Text>
         </Pressable>
         <View className="h-4" />
         <DeleteAccount />

@@ -44,10 +44,10 @@ export const Create: FC = () => {
   return (
     <View className="absolute bottom-4 right-4">
       <Pressable
-        className="flex w-full items-center justify-center rounded-2xl bg-teal-500 p-4 shadow-2xl"
+        className="flex w-full items-center justify-center rounded-full bg-rose-400 p-4"
         onPress={() => showDialog()}
       >
-        <Text className="text-white">Create</Text>
+        <Text className="text-lg font-bold uppercase text-white">Create</Text>
       </Pressable>
       <Dialog.Container visible={visible}>
         <Dialog.Title>Add New Entry</Dialog.Title>
