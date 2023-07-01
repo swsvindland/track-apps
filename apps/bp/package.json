@@ -1,5 +1,5 @@
 {
-    "name": "@acme/expo",
+    "name": "@acme/bp",
     "version": "0.1.0",
     "main": "index.ts",
     "scripts": {
