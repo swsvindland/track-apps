@@ -2,7 +2,6 @@ import React, { FC, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import Dialog from "react-native-dialog";
 import { trpc } from "../utils/trpc";
-import { useQueryClient } from "@tanstack/react-query";
 
 interface State {
   systolic?: string;

@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Layout from "../components/layout";
 import { Login } from "../components/login";
+import { Charts } from "../components/charts";
 
 const Reports: NextPage = () => {
   const { isSignedIn } = useAuth();
@@ -21,7 +22,7 @@ const Reports: NextPage = () => {
       <Layout>
         <main className="flex h-screen flex-col items-center">
           <div className="container grid grid-cols-1 gap-4">
-            <h1>Reports</h1>
+            <Charts />
           </div>
         </main>
       </Layout>

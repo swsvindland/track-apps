@@ -14,6 +14,10 @@ const config = {
   eslint: {
     ignoreDuringBuilds: !!process.env.CI,
   },
+  images: {
+    dangerouslyAllowSVG: true,
+    domains: ["tailwindui.com"],
+  },
 };
 
 export default config;

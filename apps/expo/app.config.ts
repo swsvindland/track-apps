@@ -1,18 +1,19 @@
-import { ExpoConfig, ConfigContext } from "@expo/config";
+import { ExpoConfig } from "@expo/config";
 
-const CLERK_PUBLISHABLE_KEY = "pk_test_c2F2ZWQtbGVvcGFyZC01NC5jbGVyay5hY2NvdW50cy5kZXYk";
+const CLERK_PUBLISHABLE_KEY =
+  "pk_test_c2F2ZWQtbGVvcGFyZC01NC5jbGVyay5hY2NvdW50cy5kZXYk";
 
-const defineConfig = (_ctx: ConfigContext): ExpoConfig => ({
-  name: "expo",
-  slug: "expo",
-  version: "1.0.0",
+const defineConfig = (): ExpoConfig => ({
+  name: "Blood Pressure Track",
+  slug: "bp-track",
+  version: "2.0.0",
   orientation: "portrait",
   icon: "./assets/icon.png",
   userInterfaceStyle: "light",
   splash: {
     image: "./assets/icon.png",
     resizeMode: "contain",
-    backgroundColor: "#2e026d",
+    backgroundColor: "#fff",
   },
   updates: {
     fallbackToCacheTimeout: 0,
@@ -20,12 +21,12 @@ const defineConfig = (_ctx: ConfigContext): ExpoConfig => ({
   assetBundlePatterns: ["**/*"],
   ios: {
     supportsTablet: true,
-    bundleIdentifier: "your.bundle.identifier",
+    bundleIdentifier: "com.svindland.bptrack",
   },
   android: {
     adaptiveIcon: {
       foregroundImage: "./assets/icon.png",
-      backgroundColor: "#2e026d",
+      backgroundColor: "#fff",
     },
   },
   extra: {

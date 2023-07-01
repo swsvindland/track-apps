@@ -5,6 +5,8 @@ import { FC, useMemo, useState } from "react";
 import { format } from "date-fns";
 
 export const BloodPressureChart: FC = () => {
+  // react-native-chart-kit does not export its data type
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [data, setData] = useState<any>(null);
 
   const userBloodPressureQuery = trpc.bloodPressure.graph.useQuery();

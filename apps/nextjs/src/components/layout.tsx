@@ -10,6 +10,8 @@ import {
 } from "@heroicons/react/24/outline";
 import { UserButton } from "@clerk/nextjs";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import Image from "next/image";
 
 const defaultNavigation = [
   { name: "Dashboard", href: "/", icon: HomeIcon, current: true },
@@ -38,7 +40,9 @@ export default function Layout(props: LayoutProps) {
         };
       }),
     );
-  }, [navigation, router.pathname]);
+    // disable, we only want to update when router.pathname changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.pathname]);
 
   return (
     <div>
@@ -92,10 +96,11 @@ export default function Layout(props: LayoutProps) {
                   </div>
                 </Transition.Child>
                 {/* Sidebar component, swap this element with another sidebar if you like */}
-                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4">
+                <div className="flex h-screen grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4">
                   <div className="flex h-16 shrink-0 items-center">
-                    <img
-                      className="h-8 w-auto"
+                    <Image
+                      width={32}
+                      height={32}
                       src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                       alt="Your Company"
                     />
@@ -106,7 +111,7 @@ export default function Layout(props: LayoutProps) {
                         <ul role="list" className="-mx-2 space-y-1">
                           {navigation.map((item) => (
                             <li key={item.name}>
-                              <a
+                              <Link
                                 href={item.href}
                                 className={classNames(
                                   item.current
@@ -125,13 +130,13 @@ export default function Layout(props: LayoutProps) {
                                   aria-hidden="true"
                                 />
                                 {item.name}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>
                       </li>
                       <li className="mt-auto">
-                        <a
+                        <Link
                           href="/settings"
                           className={classNames(
                             router.pathname === "/settings"
@@ -145,7 +150,7 @@ export default function Layout(props: LayoutProps) {
                             aria-hidden="true"
                           />
                           Settings
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </nav>
@@ -161,8 +166,9 @@ export default function Layout(props: LayoutProps) {
         {/* Sidebar component, swap this element with another sidebar if you like */}
         <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4">
           <div className="flex h-16 shrink-0 items-center">
-            <img
-              className="h-8 w-auto"
+            <Image
+              width={32}
+              height={32}
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
               alt="Your Company"
             />
@@ -173,7 +179,7 @@ export default function Layout(props: LayoutProps) {
                 <ul role="list" className="-mx-2 space-y-1">
                   {navigation.map((item) => (
                     <li key={item.name}>
-                      <a
+                      <Link
                         href={item.href}
                         className={classNames(
                           item.current
@@ -192,13 +198,13 @@ export default function Layout(props: LayoutProps) {
                           aria-hidden="true"
                         />
                         {item.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </li>
               <li className="mt-auto">
-                <a
+                <Link
                   href="/settings"
                   className={classNames(
                     router.pathname === "/settings"
@@ -212,7 +218,7 @@ export default function Layout(props: LayoutProps) {
                     aria-hidden="true"
                   />
                   Settings
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
