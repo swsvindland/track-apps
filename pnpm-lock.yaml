@@ -38,6 +38,115 @@ importers:
         specifier: ^5.1.6
         version: 5.1.6
 
+  apps/body:
+    dependencies:
+      '@acme/api':
+        specifier: '*'
+        version: link:../../packages/api
+      '@acme/tailwind-config':
+        specifier: '*'
+        version: link:../../packages/config/tailwind
+      '@clerk/clerk-expo':
+        specifier: ^0.18.9
+        version: 0.18.9(@babel/core@7.20.5)(@types/react@18.2.14)(expo-auth-session@4.0.3)(expo-web-browser@12.1.1)(react-dom@18.2.0)(react-native@0.70.5)(react@18.2.0)
+      '@shopify/flash-list':
+        specifier: ^1.4.0
+        version: 1.4.0(@babel/runtime@7.20.6)(react-native@0.70.5)(react@18.2.0)
+      '@tanstack/react-query':
+        specifier: ^4.29.19
+        version: 4.29.19(react-dom@18.2.0)(react-native@0.70.5)(react@18.2.0)
+      '@trpc/client':
+        specifier: ^10.33.0
+        version: 10.33.0(@trpc/server@10.33.0)
+      '@trpc/react-query':
+        specifier: ^10.33.0
+        version: 10.33.0(@tanstack/react-query@4.29.19)(@trpc/client@10.33.0)(@trpc/server@10.33.0)(react-dom@18.2.0)(react@18.2.0)
+      '@trpc/server':
+        specifier: ^10.33.0
+        version: 10.33.0
+      expo:
+        specifier: ^48.0.6
+        version: 48.0.10(@babel/core@7.20.5)
+      expo-auth-session:
+        specifier: ^4.0.3
+        version: 4.0.3(expo@48.0.10)
+      expo-random:
+        specifier: ^13.0.0
+        version: 13.0.0(expo@48.0.10)
+      expo-router:
+        specifier: ^1.5.3
+        version: 1.5.3(@types/react@18.2.14)(expo-constants@14.2.1)(expo-linking@4.0.1)(expo-modules-autolinking@1.1.2)(expo-status-bar@1.4.2)(expo@48.0.10)(metro@0.76.7)(react-dom@18.2.0)(react-native-gesture-handler@2.12.0)(react-native-safe-area-context@4.4.1)(react-native-screens@3.22.0)(react-native@0.70.5)(react@18.2.0)
+      expo-secure-store:
+        specifier: ^12.1.1
+        version: 12.1.1(expo@48.0.10)
+      expo-status-bar:
+        specifier: ^1.4.2
+        version: 1.4.2
+      expo-system-ui:
+        specifier: ~2.2.1
+        version: 2.2.1(expo@48.0.10)
+      expo-web-browser:
+        specifier: ^12.1.1
+        version: 12.1.1(expo@48.0.10)
+      nativewind:
+        specifier: ^2.0.11
+        version: 2.0.11(react@18.2.0)(tailwindcss@3.3.2)
+      react:
+        specifier: 18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: 18.2.0
+        version: 18.2.0(react@18.2.0)
+      react-native:
+        specifier: 0.70.5
+        version: 0.70.5(patch_hash=rnbco5eodjkfp6ucueusre3z4i)(@babel/core@7.20.5)(@babel/preset-env@7.20.2)(react@18.2.0)
+      react-native-chart-kit:
+        specifier: ^6.12.0
+        version: 6.12.0(react-native-svg@13.4.0)(react-native@0.70.5)(react@18.2.0)
+      react-native-dialog:
+        specifier: ^9.3.0
+        version: 9.3.0(react-native@0.70.5)
+      react-native-heroicons:
+        specifier: ^3.2.0
+        version: 3.2.0(react-native-svg@13.4.0)(react@18.2.0)
+      react-native-safe-area-context:
+        specifier: 4.4.1
+        version: 4.4.1(react-native@0.70.5)(react@18.2.0)
+      react-native-svg:
+        specifier: ^13.4.0
+        version: 13.4.0(react-native@0.70.5)(react@18.2.0)
+      react-native-web:
+        specifier: ~0.18.10
+        version: 0.18.10(react-dom@18.2.0)(react@18.2.0)
+    devDependencies:
+      '@babel/core':
+        specifier: ^7.19.3
+        version: 7.20.5
+      '@babel/preset-env':
+        specifier: ^7.19.3
+        version: 7.20.2(@babel/core@7.20.5)
+      '@babel/runtime':
+        specifier: ^7.19.0
+        version: 7.20.6
+      '@types/react':
+        specifier: ^18.2.14
+        version: 18.2.14
+      '@types/react-native':
+        specifier: ~0.70.6
+        version: 0.70.8
+      eslint:
+        specifier: ^8.43.0
+        version: 8.43.0
+      postcss:
+        specifier: ^8.4.24
+        version: 8.4.24
+      tailwindcss:
+        specifier: ^3.3.2
+        version: 3.3.2
+      typescript:
+        specifier: ^5.1.5
+        version: 5.1.6
+
   apps/bp:
     dependencies:
       '@acme/api':

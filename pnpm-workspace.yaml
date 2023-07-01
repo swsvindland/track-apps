@@ -1,5 +1,6 @@
 packages:
   - apps/bp
+  - apps/body
   - apps/nextjs
   - packages/api
   - packages/db
