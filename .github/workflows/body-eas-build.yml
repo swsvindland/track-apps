@@ -24,4 +24,4 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Build on EAS
-        run: cd apps/bp && eas build --platform ios --non-interactive
+        run: cd apps/body && eas build --platform ios --non-interactive

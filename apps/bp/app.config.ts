@@ -1,7 +1,7 @@
 import { ExpoConfig } from "@expo/config";
 
-const CLERK_PUBLISHABLE_KEY =
-  "pk_test_c2F2ZWQtbGVvcGFyZC01NC5jbGVyay5hY2NvdW50cy5kZXYk";
+// const CLERK_PUBLISHABLE_KEY = "pk_test_c2F2ZWQtbGVvcGFyZC01NC5jbGVyay5hY2NvdW50cy5kZXYk";
+const CLERK_PUBLISHABLE_KEY = "pk_live_Y2xlcmsud29ya291dC10cmFjay5jb20k";
 
 const defineConfig = (): ExpoConfig => ({
   owner: "swsvindland",
@@ -19,12 +19,16 @@ const defineConfig = (): ExpoConfig => ({
   },
   updates: {
     fallbackToCacheTimeout: 0,
+    url: "https://u.expo.dev/94bb81a4-fa24-4be0-936f-c47d6f1ac1de",
+  },
+  runtimeVersion: {
+    policy: "sdkVersion",
   },
   assetBundlePatterns: ["**/*"],
   ios: {
-    buildNumber: "2",
+    buildNumber: "3",
     userInterfaceStyle: "automatic",
-    supportsTablet: true,
+    supportsTablet: false,
     bundleIdentifier: "com.svindland.bptrack",
   },
   android: {
