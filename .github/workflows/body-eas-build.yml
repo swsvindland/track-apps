@@ -1,4 +1,4 @@
-name: EAS Build
+name: Body EAS Build
 on:
   workflow_dispatch:
   push:

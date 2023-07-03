@@ -26,7 +26,7 @@ const defineConfig = (): ExpoConfig => ({
   },
   assetBundlePatterns: ["**/*"],
   ios: {
-    buildNumber: "3",
+    buildNumber: "4",
     userInterfaceStyle: "automatic",
     supportsTablet: false,
     bundleIdentifier: "com.svindland.bptrack",
