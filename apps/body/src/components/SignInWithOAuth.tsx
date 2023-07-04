@@ -46,11 +46,13 @@ const SignInWithOAuth = () => {
   return (
     <View className="flex h-full items-center justify-center gap-4 px-2">
       <View>
-        <Image source={require("../images/logo.png")} style={{ height: 128 }} />
-        <Text className="dark:text-white">Body Track</Text>
+        <Image
+          source={require("../images/logo.png")}
+          style={{ height: 128, width: 128 }}
+        />
       </View>
       <Pressable
-        className="flex w-full items-center justify-center rounded-full bg-rose-400 p-4"
+        className="flex w-full items-center justify-center rounded-full bg-fuchsia-400 p-4"
         onPress={handleSignInWithApplePress}
       >
         <Text className="text-lg font-bold uppercase text-white">
@@ -58,7 +60,7 @@ const SignInWithOAuth = () => {
         </Text>
       </Pressable>
       <Pressable
-        className="flex w-full items-center justify-center rounded-full bg-rose-400 p-4"
+        className="flex w-full items-center justify-center rounded-full bg-fuchsia-400 p-4"
         onPress={handleSignInWithGooglePress}
       >
         <Text className="text-lg font-bold uppercase text-white">

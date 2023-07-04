@@ -46,7 +46,10 @@ const SignInWithOAuth = () => {
   return (
     <View className="flex h-full items-center justify-center gap-4 px-2">
       <View>
-        <Image source={require("../images/logo.png")} style={{ height: 128 }} />
+        <Image
+          source={require("../images/logo.png")}
+          style={{ height: 128, width: 128 }}
+        />
       </View>
       <Pressable
         className="flex w-full items-center justify-center rounded-full bg-rose-400 p-4"
