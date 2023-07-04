@@ -4,6 +4,7 @@ import { authRouter } from "./auth";
 import { bloodPressureRouter } from "./bloodPressure";
 import { weightRouter } from "./weight";
 import { heightRouter } from "./height";
+import { reportsRouter } from "./reports";
 
 export const appRouter = router({
   post: postRouter,
@@ -11,6 +12,7 @@ export const appRouter = router({
   bloodPressure: bloodPressureRouter,
   weight: weightRouter,
   height: heightRouter,
+  reports: reportsRouter,
 });
 
 // export type definition of API

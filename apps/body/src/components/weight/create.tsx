@@ -39,7 +39,7 @@ export const Create: FC = () => {
   return (
     <View className="absolute bottom-4 right-4">
       <Pressable
-        className="flex w-full items-center justify-center rounded-full bg-rose-400 p-4"
+        className="flex w-full items-center justify-center rounded-full bg-fuchsia-400 p-4"
         onPress={() => showDialog()}
       >
         <View className="flex flex-row items-center justify-center">
@@ -51,9 +51,7 @@ export const Create: FC = () => {
       </Pressable>
       <Dialog.Container visible={visible}>
         <Dialog.Title>Add New Entry</Dialog.Title>
-        <Dialog.Description>
-          Create a new blood pressure entry.
-        </Dialog.Description>
+        <Dialog.Description>Create a new weight entry.</Dialog.Description>
         <Dialog.Input
           value={state.weight}
           placeholder="Weight"

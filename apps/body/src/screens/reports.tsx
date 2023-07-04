@@ -2,6 +2,7 @@ import { SafeAreaView, ScrollView } from "react-native";
 import React from "react";
 import { WeightChart } from "../components/weight/weightChart";
 import { HeartRateChart } from "../components/heartRateChart";
+import { BmiChart } from "../components/bmiChart";
 
 export const ReportsScreen = () => {
   return (
@@ -9,6 +10,7 @@ export const ReportsScreen = () => {
       <ScrollView className="h-full w-full px-2 pt-4 dark:bg-black">
         <WeightChart />
         <HeartRateChart />
+        <BmiChart />
       </ScrollView>
     </SafeAreaView>
   );
