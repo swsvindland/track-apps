@@ -13,7 +13,7 @@
       "channel": "preview"
     },
     "production": {
-      "channel": "production"
+      "autoIncrementBuildVersion": true
     }
   },
   "submit": {

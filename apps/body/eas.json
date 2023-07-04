@@ -10,7 +10,9 @@
     "preview": {
       "distribution": "internal"
     },
-    "production": {}
+    "production": {
+      "autoIncrementBuildVersion": true
+    }
   },
   "submit": {
     "production": {}
