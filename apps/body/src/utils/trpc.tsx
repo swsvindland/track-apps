@@ -1,11 +1,6 @@
 import { createTRPCReact } from "@trpc/react-query";
 import type { AppRouter } from "@acme/api";
 /**
- * Extend this function when going to production by
- * setting the baseUrl to your production API URL.
- */
-import Constants from "expo-constants";
-/**
  * A wrapper for your app that provides the TRPC context.
  * Use only in _app.tsx
  */
@@ -26,9 +21,10 @@ const getBaseUrl = () => {
    * you'll have to manually set it. NOTE: Port 3000 should work for most but confirm
    * you don't have anything else running on it, or you'd have to change it.
    */
-  const localhost = Constants.manifest?.debuggerHost?.split(":")[0];
-  if (!localhost) return "https://bp-track.vercel.app/";
-  return `http://${localhost}:3000`;
+
+  if (process.env.NODE_ENV === "production")
+    return "https://bp-track.vercel.app";
+  return "http://localhost:3000";
 };
 
 export const TRPCProvider: React.FC<{
