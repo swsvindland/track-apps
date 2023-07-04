@@ -2,6 +2,7 @@ import React, { FC, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import Dialog from "react-native-dialog";
 import { trpc } from "../../utils/trpc";
+import { PlusIcon } from "react-native-heroicons/outline";
 
 interface State {
   height?: string;
@@ -41,7 +42,12 @@ export const Create: FC = () => {
         className="flex w-full items-center justify-center rounded-full bg-rose-400 p-4"
         onPress={() => showDialog()}
       >
-        <Text className="text-lg font-bold uppercase text-white">Create</Text>
+        <View className="flex flex-row items-center justify-center">
+          <PlusIcon color="white" />
+          <Text className="ml-2 text-lg font-bold uppercase text-white">
+            Create
+          </Text>
+        </View>
       </Pressable>
       <Dialog.Container visible={visible}>
         <Dialog.Title>Add New Entry</Dialog.Title>
