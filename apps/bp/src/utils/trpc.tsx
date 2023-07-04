@@ -24,7 +24,7 @@ const getBaseUrl = () => {
 
   if (process.env.NODE_ENV === "production")
     return "https://bp-track.vercel.app";
-  return "http://localhost:3000";
+  return `http://192.168.1.6:3000`;
 };
 
 export const TRPCProvider: React.FC<{
@@ -48,6 +48,8 @@ export const TRPCProvider: React.FC<{
       ],
     }),
   );
+
+  console.log(getBaseUrl());
 
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
