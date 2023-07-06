@@ -1,9 +1,14 @@
 import { useOAuth } from "@clerk/clerk-expo";
-import React from "react";
-import { Text, Pressable, View, Image } from "react-native";
-import { useWarmUpBrowser } from "../hooks/useWarmUpBrowser";
+import React, { FC } from "react";
+import { View, Image } from "react-native";
+import { useWarmUpBrowser } from "@acme/utils";
+import { Button } from "./button";
 
-const SignInWithOAuth = () => {
+interface SignInWithOAuthProps {
+  logo: string;
+}
+
+export const SignInWithOAuth: FC<SignInWithOAuthProps> = ({ logo }) => {
   useWarmUpBrowser();
 
   const apple = useOAuth({ strategy: "oauth_apple" });
@@ -44,31 +49,33 @@ const SignInWithOAuth = () => {
   }, []);
 
   return (
-    <View className="flex h-full items-center justify-center gap-4 px-2">
+    <View className="flex-1 items-center justify-center">
       <View>
-        <Image
-          source={require("../images/logo.png")}
-          style={{ height: 128, width: 128 }}
+        {logo === "bp" ? (
+          <Image
+            source={require(`../images/bp.png`)}
+            style={{ height: 128, width: 128 }}
+          />
+        ) : null}
+        {logo === "body" ? (
+          <Image
+            source={require(`../images/body.png`)}
+            style={{ height: 128, width: 128 }}
+          />
+        ) : null}
+      </View>
+      <View className="my-2 w-full">
+        <Button
+          onPress={handleSignInWithApplePress}
+          text="Sign In With Apple"
         />
       </View>
-      <Pressable
-        className="flex w-full items-center justify-center rounded-full bg-fuchsia-400 p-4"
-        onPress={handleSignInWithApplePress}
-      >
-        <Text className="text-lg font-bold uppercase text-white">
-          Sign In with Apple
-        </Text>
-      </Pressable>
-      <Pressable
-        className="flex w-full items-center justify-center rounded-full bg-fuchsia-400 p-4"
-        onPress={handleSignInWithGooglePress}
-      >
-        <Text className="text-lg font-bold uppercase text-white">
-          Sign In with Google
-        </Text>
-      </Pressable>
+      <View className="my-2 w-full">
+        <Button
+          onPress={handleSignInWithGooglePress}
+          text="Sign In With Google"
+        />
+      </View>
     </View>
   );
 };
-
-export default SignInWithOAuth;
