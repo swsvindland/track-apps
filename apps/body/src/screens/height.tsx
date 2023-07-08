@@ -3,7 +3,7 @@ import { View, SafeAreaView } from "react-native";
 
 import { Create } from "../components/height/create";
 import { GridList } from "../components/height/gridList";
-import { HeightChart } from "../components/height/heightChart";
+import { HeightChart } from "@acme/ui";
 
 export const HeightScreen = () => {
   return (

@@ -6,7 +6,7 @@ import {
   ChartPieIcon,
 } from "react-native-heroicons/outline";
 import { HomeScreen } from "../screens/home";
-import { ReportsScreen } from "../screens/reports";
+import { ReportsScreen } from "@acme/ui";
 import { SettingsScreen } from "../screens/settings";
 import { useColorScheme } from "react-native";
 

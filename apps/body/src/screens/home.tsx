@@ -1,7 +1,7 @@
 import React from "react";
 import { View, SafeAreaView } from "react-native";
 
-import { WeightChart } from "../components/weight/weightChart";
+import { WeightChart } from "@acme/ui";
 import { Create } from "../components/weight/create";
 import { GridList } from "../components/weight/gridList";
 

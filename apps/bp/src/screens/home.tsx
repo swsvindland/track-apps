@@ -1,7 +1,7 @@
 import React from "react";
 import { View, SafeAreaView } from "react-native";
 
-import { BloodPressureChart } from "../components/bloodPressureChart";
+import { BloodPressureChart } from "@acme/ui";
 import { Create } from "../components/create";
 import { GridList } from "../components/gridList";
 
