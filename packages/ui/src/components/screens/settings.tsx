@@ -1,7 +1,8 @@
 import { SafeAreaView, View, Text, Pressable } from "react-native";
 import React from "react";
 import { useAuth } from "@clerk/clerk-expo";
-import { DeleteAccount } from "../components/deleteAccount";
+import { DeleteAccount } from "../deleteAccount";
+import { Button } from "../button";
 
 export const SettingsScreen = () => {
   const { signOut } = useAuth();
@@ -9,14 +10,7 @@ export const SettingsScreen = () => {
   return (
     <SafeAreaView>
       <View className="h-full w-full px-2 pt-4 dark:bg-black">
-        <Pressable
-          className="flex w-full items-center justify-center rounded-full bg-rose-400 p-4"
-          onPress={() => signOut()}
-        >
-          <Text className="text-lg font-bold uppercase text-white">
-            Sign Out
-          </Text>
-        </Pressable>
+        <Button onPress={() => signOut()} text="Sign Out" fullWidth />
         <View className="h-4" />
         <DeleteAccount />
       </View>

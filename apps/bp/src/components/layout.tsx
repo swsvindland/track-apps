@@ -6,8 +6,7 @@ import {
   ChartPieIcon,
 } from "react-native-heroicons/outline";
 import { HomeScreen } from "../screens/home";
-import { ReportsScreen } from "@acme/ui";
-import { SettingsScreen } from "../screens/settings";
+import { ReportsScreen, SettingsScreen } from "@acme/ui";
 import { useColorScheme } from "react-native";
 
 const Tab = createBottomTabNavigator();
@@ -33,7 +32,7 @@ export const Layout: FC = () => {
         tabBarStyle: {
           backgroundColor: colorScheme === "dark" ? "#262626" : "#fff",
         },
-        tabBarActiveTintColor: "red",
+        tabBarActiveTintColor: "teal",
         tabBarInactiveTintColor: "gray",
       })}
     >
