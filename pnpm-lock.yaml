@@ -27,6 +27,7 @@ importers:
       '@acme/api': '*'
       '@acme/tailwind-config': '*'
       '@acme/ui': '*'
+      '@acme/utils': '*'
       '@babel/core': ^7.19.3
       '@babel/preset-env': ^7.19.3
       '@babel/runtime': ^7.19.0
@@ -64,6 +65,7 @@ importers:
       '@acme/api': link:../../packages/api
       '@acme/tailwind-config': link:../../packages/config/tailwind
       '@acme/ui': link:../../packages/ui
+      '@acme/utils': link:../../packages/utils
       '@clerk/clerk-expo': 0.18.10_e8a1a024cfd124e880fc63308e5b4f56
       '@shopify/flash-list': 1.4.3_7e9a287672c6531081fa2945b366ad5f
       '@tanstack/react-query': 4.29.19_0ae1f3c641768ae48d9a0eec26d88d7e
@@ -104,6 +106,7 @@ importers:
       '@acme/api': '*'
       '@acme/tailwind-config': '*'
       '@acme/ui': '*'
+      '@acme/utils': '*'
       '@babel/core': ^7.19.3
       '@babel/preset-env': ^7.19.3
       '@babel/runtime': ^7.19.0
@@ -141,6 +144,7 @@ importers:
       '@acme/api': link:../../packages/api
       '@acme/tailwind-config': link:../../packages/config/tailwind
       '@acme/ui': link:../../packages/ui
+      '@acme/utils': link:../../packages/utils
       '@clerk/clerk-expo': 0.18.10_e8a1a024cfd124e880fc63308e5b4f56
       '@shopify/flash-list': 1.4.3_7e9a287672c6531081fa2945b366ad5f
       '@tanstack/react-query': 4.29.19_0ae1f3c641768ae48d9a0eec26d88d7e
@@ -292,10 +296,12 @@ importers:
 
   packages/utils:
     specifiers:
+      '@acme/api': '*'
       expo-web-browser: ^12.3.2
       react: ^18.2.0
       typescript: ^5.1.6
     dependencies:
+      '@acme/api': link:../api
       expo-web-browser: 12.3.2
       react: 18.2.0
     devDependencies:
@@ -3284,7 +3290,7 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@tanstack/react-query': 4.29.19_0ae1f3c641768ae48d9a0eec26d88d7e
+      '@tanstack/react-query': 4.29.19_react-dom@18.2.0+react@18.2.0
       '@trpc/client': 10.33.0_@trpc+server@10.33.0
       '@trpc/server': 10.33.0
       react: 18.2.0

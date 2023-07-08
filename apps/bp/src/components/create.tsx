@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import Dialog from "react-native-dialog";
-import { trpc } from "../utils/trpc";
+import { trpc } from "@acme/utils";
 import { PlusIcon } from "react-native-heroicons/outline";
 
 interface State {

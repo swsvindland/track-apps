@@ -1,6 +1,6 @@
 import { Dimensions, Text, useColorScheme, View } from "react-native";
 import { LineChart } from "react-native-chart-kit";
-import { trpc } from "../../utils/trpc";
+import { trpc } from "@acme/utils";
 import { FC, useMemo, useState } from "react";
 import { format } from "date-fns";
 

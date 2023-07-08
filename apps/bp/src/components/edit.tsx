@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { View } from "react-native";
 import Dialog from "react-native-dialog";
-import { trpc } from "../utils/trpc";
+import { trpc } from "@acme/utils";
 import { BloodPressure } from "./gridList";
 
 interface State {

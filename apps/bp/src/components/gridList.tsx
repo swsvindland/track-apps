@@ -1,5 +1,5 @@
 import { FC, useMemo, useState } from "react";
-import { trpc } from "../utils/trpc";
+import { trpc } from "@acme/utils";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { format } from "date-fns";
 import { Edit } from "./edit";
