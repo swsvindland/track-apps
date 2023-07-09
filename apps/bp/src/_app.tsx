@@ -25,7 +25,7 @@ export const App = () => {
         </TRPCProvider>
       </SignedIn>
       <SignedOut>
-        <SignInSignUpScreen />
+        <SignInSignUpScreen logo="bp" />
       </SignedOut>
     </ClerkProvider>
   );
