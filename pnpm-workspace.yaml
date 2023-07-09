@@ -2,6 +2,7 @@ packages:
   - apps/bp
   - apps/body
   - apps/nextjs
+  - apps/water
   - packages/api
   - packages/db
   - packages/config/*
