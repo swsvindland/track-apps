@@ -63,6 +63,12 @@ export const SignInWithOAuth: FC<SignInWithOAuthProps> = ({ logo }) => {
             style={{ height: 128, width: 128 }}
           />
         ) : null}
+        {logo === "water" ? (
+          <Image
+            source={require(`../images/water.png`)}
+            style={{ height: 128, width: 128 }}
+          />
+        ) : null}
       </View>
       <View className="my-2 w-full">
         <Button
