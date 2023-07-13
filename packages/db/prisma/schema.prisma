@@ -50,8 +50,42 @@ model UserSettings {
 model UserWater {
     id        BigInt   @id @default(autoincrement())
     userId    String
+    drinkId   BigInt
+    drink     Drink    @relation(fields: [drinkId], references: [id])
     amount    Float
-    type      String
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
+}
+
+model UserAlcohol {
+    id        BigInt   @id @default(autoincrement())
+    userId    String
+    alcoholId BigInt
+    Alcohol   Alcohol  @relation(fields: [alcoholId], references: [id])
+    amount    Float
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model Drink {
+    id          BigInt      @id @default(autoincrement())
+    name        String
+    hydration   Float
+    servingSize Int
+    calories    Int
+    caffeine    Float       @default(0)
+    createdAt   DateTime    @default(now())
+    updatedAt   DateTime    @updatedAt
+    UserWater   UserWater[]
+}
+
+model Alcohol {
+    id          BigInt        @id @default(autoincrement())
+    name        String
+    servingSize Int
+    calories    Int
+    alcohol     Float
+    createdAt   DateTime      @default(now())
+    updatedAt   DateTime      @updatedAt
+    UserAlcohol UserAlcohol[]
 }
