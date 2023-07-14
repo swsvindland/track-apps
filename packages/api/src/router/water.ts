@@ -3,6 +3,13 @@ import { z } from "zod";
 import { format } from "date-fns";
 
 export const waterRouter = router({
+  getDrinks: protectedProcedure.query(({ ctx }) => {
+    return ctx.prisma.drink.findMany({
+      orderBy: {
+        createdAt: "asc",
+      },
+    });
+  }),
   all: protectedProcedure.query(({ ctx }) => {
     return ctx.prisma.userWater.findMany({
       where: { userId: ctx.auth.userId },
@@ -36,14 +43,14 @@ export const waterRouter = router({
     .input(
       z.object({
         amount: z.number(),
-        type: z.string(),
+        drinkId: z.number(),
       }),
     )
     .mutation(({ ctx, input }) => {
       return ctx.prisma.userWater.create({
         data: {
           amount: input.amount,
-          type: input.type,
+          drinkId: input.drinkId,
           userId: ctx.auth.userId,
         },
       });
@@ -54,7 +61,6 @@ export const waterRouter = router({
       z.object({
         id: z.bigint(),
         amount: z.number(),
-        type: z.string(),
       }),
     )
     .mutation(({ ctx, input }) => {
@@ -64,7 +70,6 @@ export const waterRouter = router({
         },
         data: {
           amount: input.amount,
-          type: input.type,
         },
       });
     }),
