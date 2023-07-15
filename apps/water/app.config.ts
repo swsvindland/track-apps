@@ -28,13 +28,13 @@ const defineConfig = (): ExpoConfig => ({
   },
   assetBundlePatterns: ["**/*"],
   ios: {
-    buildNumber: "6",
+    buildNumber: "7",
     userInterfaceStyle: "automatic",
     supportsTablet: true,
     bundleIdentifier: "com.svindland.watertrack",
   },
   android: {
-    versionCode: 6,
+    versionCode: 7,
     userInterfaceStyle: "automatic",
     package: "com.svindland.watertrack",
     adaptiveIcon: {
@@ -44,7 +44,7 @@ const defineConfig = (): ExpoConfig => ({
   },
   extra: {
     eas: {
-      projectId: "94bb81a4-fa24-4be0-936f-c47d6f1ac1de",
+      projectId: "f3848044-ce0d-40d1-abf6-fd57378c04be",
     },
     CLERK_PUBLISHABLE_KEY,
   },

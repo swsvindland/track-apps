@@ -25,13 +25,13 @@ const defineConfig = (): ExpoConfig => ({
   },
   assetBundlePatterns: ["**/*"],
   ios: {
-    buildNumber: "6",
+    buildNumber: "7",
     userInterfaceStyle: "automatic",
     supportsTablet: true,
     bundleIdentifier: "com.svindland.bodytrack",
   },
   android: {
-    versionCode: 6,
+    versionCode: 7,
     userInterfaceStyle: "automatic",
     adaptiveIcon: {
       foregroundImage: "./assets/icon.png",
