@@ -1,7 +1,10 @@
 import React, { FC } from "react";
-import { View } from "react-native";
+import { Dimensions, View } from "react-native";
 import { trpc } from "@acme/utils";
 import { Button } from "@acme/ui";
+// Cannot find types for this package
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import Carousel from "react-native-snap-carousel";
 
 export const Create: FC = () => {
@@ -15,7 +18,7 @@ export const Create: FC = () => {
     },
   });
 
-  const handleCreate = async (id: number) => {
+  const handleCreate = async (id: bigint) => {
     createMutation.mutate({ amount: 8, drinkId: id });
   };
 
@@ -23,18 +26,19 @@ export const Create: FC = () => {
     <View className="absolute bottom-4 w-full">
       <Carousel
         data={drinksQuery.data}
-        renderItem={(drink: any) => {
+        renderItem={(drink: {
+          index: number;
+          item: { name: string; id: bigint };
+        }) => {
           return (
-            <View className="flex flex-col items-center justify-center">
-              <Button
-                text={drink.name}
-                onPress={() => handleCreate(drink.id)}
-              />
-            </View>
+            <Button
+              text={drink.item.name}
+              onPress={() => handleCreate(drink.item.id)}
+            />
           );
         }}
-        sliderWidth={50}
-        itemWidth={36}
+        sliderWidth={Dimensions.get("window").width}
+        itemWidth={200}
       />
     </View>
   );

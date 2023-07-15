@@ -14,9 +14,22 @@ export const WaterChart: FC = () => {
   useMemo(() => {
     if (!query.data) return;
 
+    let hydration = 0;
+    let caffeine = 0;
+    let calories = 0;
+
+    query.data.forEach((item) => {
+      hydration +=
+        (item.drink.hydration * (item.amount / item.drink.servingSize)) / 64;
+      caffeine +=
+        (item.drink.caffeine * (item.amount / item.drink.servingSize)) / 400;
+      calories +=
+        (item.drink.calories * (item.amount / item.drink.servingSize)) / 100;
+    });
+
     setData({
-      labels: ["Swim", "Bike", "Run"], // optional
-      data: [0.4, 0.6, 0.8],
+      labels: ["Calories", "Caffeine", "Hydration"], // optional
+      data: [calories, caffeine, hydration],
     });
   }, [query.data]);
 
@@ -39,29 +52,44 @@ export const WaterChart: FC = () => {
         height={220}
         strokeWidth={16}
         radius={32}
-        hideLegend={false}
+        hideLegend
         chartConfig={{
           backgroundColor: colorScheme === "dark" ? "#404040" : "#fff",
           backgroundGradientFrom: colorScheme === "dark" ? "#404040" : "#fff",
           backgroundGradientTo: colorScheme === "dark" ? "#404040" : "#fff",
-          decimalPlaces: 0, // optional, defaults to 2dp
-          color: () => (colorScheme === "dark" ? "#fff" : "#000"),
+          color: (opacity = 1, index) => {
+            if (index === 0) {
+              return `rgba(244, 63, 94, ${opacity})`;
+            }
+            if (index === 1) {
+              return `rgba(245, 158, 11, ${opacity})`;
+            }
+            return `rgba(20, 184, 166, ${opacity})`;
+          },
           labelColor: () => (colorScheme === "dark" ? "#fff" : "#000"),
           style: {
             borderRadius: 16,
-          },
-          propsForDots: {
-            r: "6",
-            strokeWidth: "2",
-            stroke: colorScheme === "dark" ? "#fff" : "#000",
           },
         }}
         style={{
           marginVertical: 8,
           borderRadius: 16,
-          shadowColor: "#000",
         }}
       />
+      <View className="flex flex-row items-center justify-center gap-8">
+        <View className="flex flex-row items-center justify-center">
+          <View className="mr-2 h-6 w-6 rounded-full bg-teal-500" />
+          <Text>Hydration</Text>
+        </View>
+        <View className="flex flex-row items-center justify-center">
+          <View className="mr-2 h-6 w-6 rounded-full bg-amber-500" />
+          <Text>Caffeine</Text>
+        </View>
+        <View className="flex flex-row items-center justify-center">
+          <View className="mr-2 h-6 w-6 rounded-full bg-rose-500" />
+          <Text>Calories</Text>
+        </View>
+      </View>
     </View>
   );
 };

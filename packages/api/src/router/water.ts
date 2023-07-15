@@ -28,6 +28,9 @@ export const waterRouter = router({
       orderBy: {
         createdAt: "asc",
       },
+      include: {
+        drink: true,
+      },
     });
   }),
 
@@ -43,7 +46,7 @@ export const waterRouter = router({
     .input(
       z.object({
         amount: z.number(),
-        drinkId: z.number(),
+        drinkId: z.bigint(),
       }),
     )
     .mutation(({ ctx, input }) => {
