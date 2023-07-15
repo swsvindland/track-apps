@@ -5,7 +5,7 @@ import { View, SafeAreaView } from "react-native";
 import { SignInWithOAuth } from "../signInWithOAuth";
 
 interface Props {
-  logo: "body" | "bp" | "water";
+  logo: "body" | "bp" | "water" | "punch";
 }
 
 export const SignInSignUpScreen: FC<Props> = ({ logo }) => {
