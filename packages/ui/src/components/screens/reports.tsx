@@ -11,7 +11,7 @@ import {
 export const ReportsScreen = () => {
   return (
     <SafeAreaView>
-      <ScrollView className="h-full w-full px-2 pt-4 dark:bg-black">
+      <ScrollView className="h-full w-full bg-teal-50 px-2 pt-4 dark:bg-black">
         <WeightChart />
         <HeightChart />
         <HeartRateChart />

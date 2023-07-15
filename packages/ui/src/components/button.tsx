@@ -27,7 +27,7 @@ export const Button: FC<ButtonProps> = ({
         fullWidth ? "w-full" : "",
         variant === "secondary"
           ? "flex flex-row items-center justify-center rounded-full border border-teal-500 bg-transparent p-4 active:bg-teal-100"
-          : "flex flex-row items-center justify-center rounded-full bg-teal-500 p-4 shadow-2xl active:bg-teal-700",
+          : "flex flex-row items-center justify-center rounded-full bg-teal-500 p-4 active:bg-teal-700",
       )}
       onPress={onPress}
     >

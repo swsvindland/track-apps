@@ -11,7 +11,7 @@ interface Props {
 export const SignInSignUpScreen: FC<Props> = ({ logo }) => {
   return (
     <SafeAreaView>
-      <View className="h-full w-full px-2 dark:bg-black">
+      <View className="h-full w-full bg-teal-50 px-2 pt-4 dark:bg-black">
         <SignInWithOAuth logo={logo} />
       </View>
     </SafeAreaView>

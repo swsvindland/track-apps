@@ -1,0 +1,27 @@
+name: Water EAS Build
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Install and build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 6.35.1
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+      - name: Setup Expo and EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build on EAS
+        run: cd apps/bp && eas build --platform ios --non-interactive
