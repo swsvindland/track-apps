@@ -1,6 +1,7 @@
 packages:
   - apps/bp
   - apps/body
+  - apps/macro
   - apps/nextjs
   - apps/punch
   - apps/water
