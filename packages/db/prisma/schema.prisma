@@ -38,11 +38,32 @@ model UserHeight {
     updatedAt DateTime @updatedAt
 }
 
+model UserBody {
+    id           BigInt   @id @default(autoincrement())
+    userId       String
+    neck         Int
+    shoulders    Int
+    chest        Int
+    leftBicep    Int
+    rightBicep   Int
+    leftForearm  Int
+    rightForearm Int
+    naval        Int
+    waist        Int
+    hips         Int
+    leftThigh    Int
+    rightThigh   Int
+    leftCalf     Int
+    rightCalf    Int
+    createdAt    DateTime @default(now())
+    updatedAt    DateTime @updatedAt
+}
+
 model UserSettings {
     id        BigInt   @id @default(autoincrement())
     userId    String
-    unit      String
-    sex       String
+    unit      Int
+    sex       Int
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
@@ -88,4 +109,59 @@ model Alcohol {
     createdAt   DateTime      @default(now())
     updatedAt   DateTime      @updatedAt
     UserAlcohol UserAlcohol[]
+}
+
+model Food {
+    id        BigInt     @id @default(autoincrement())
+    name      String
+    category  String
+    createdAt DateTime   @default(now())
+    updatedAt DateTime   @updatedAt
+    servings  Serving[]
+    UserFood  UserFood[]
+}
+
+model Serving {
+    id                     BigInt     @id @default(autoincrement())
+    addedSugar             Float      @default(0)
+    calcium                Float      @default(0)
+    calories               Float      @default(0)
+    carbohydrate           Float      @default(0)
+    cholesterol            Float      @default(0)
+    fat                    Float      @default(0)
+    fiber                  Float      @default(0)
+    iron                   Float      @default(0)
+    measurementDescription String     @default("")
+    metricServingAmount    Float      @default(0)
+    metricServingUnit      String     @default("")
+    numberOfUnits          Float      @default(0)
+    monoUnsaturatedFat     Float      @default(0)
+    polyUnsaturatedFat     Float      @default(0)
+    potassium              Float      @default(0)
+    protein                Float      @default(0)
+    saturatedFat           Float      @default(0)
+    servingDescription     String     @default("")
+    sodium                 Float      @default(0)
+    sugar                  Float      @default(0)
+    transFat               Float      @default(0)
+    vitaminA               Float      @default(0)
+    vitaminC               Float      @default(0)
+    vitaminD               Float      @default(0)
+    createdAt              DateTime   @default(now())
+    updatedAt              DateTime   @updatedAt
+    foodId                 BigInt?
+    food                   Food?      @relation(fields: [foodId], references: [id])
+    UserFood               UserFood[]
+}
+
+model UserFood {
+    id            BigInt   @id @default(autoincrement())
+    userId        String
+    foodId        BigInt
+    servingId     BigInt
+    servingAmount Float
+    createdAt     DateTime @default(now())
+    updatedAt     DateTime @updatedAt
+    food          Food     @relation(fields: [foodId], references: [id])
+    serving       Serving  @relation(fields: [servingId], references: [id])
 }

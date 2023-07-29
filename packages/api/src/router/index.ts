@@ -5,10 +5,12 @@ import { heightRouter } from "./height";
 import { reportsRouter } from "./reports";
 import { accountRouter } from "./account";
 import { waterRouter } from "./water";
+import { foodRouter } from "./food";
 
 export const appRouter = router({
   account: accountRouter,
   bloodPressure: bloodPressureRouter,
+  food: foodRouter,
   weight: weightRouter,
   height: heightRouter,
   reports: reportsRouter,
