@@ -1,4 +1,4 @@
-import { router, protectedProcedure } from "../trpc";
+import { protectedProcedure, router } from "../trpc";
 import { closestTo } from "date-fns";
 
 export const reportsRouter = router({
@@ -24,7 +24,7 @@ export const reportsRouter = router({
       return [];
     }
 
-    const bmis = weights.map((weight, index) => {
+    return weights.map((weight) => {
       const height = closestTo(
         weight.createdAt,
         heights.map((h) => h.createdAt),
@@ -40,7 +40,5 @@ export const reportsRouter = router({
         createdAt: weight.createdAt,
       };
     });
-
-    return bmis;
   }),
 });

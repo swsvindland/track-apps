@@ -211,6 +211,8 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0
       react-native: 0.72.1
+      react-native-autocomplete-dropdown: ^3.0.2
+      react-native-autocomplete-input: ^5.3.2
       react-native-chart-kit: ^6.12.0
       react-native-dialog: ^9.3.0
       react-native-heroicons: ^3.2.0
@@ -242,6 +244,8 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-native: 0.72.1_4e0f55b1fb310f005e421cef579483ea
+      react-native-autocomplete-dropdown: 3.0.2_278af403c91fe66479973576c8e30291
+      react-native-autocomplete-input: 5.3.2
       react-native-chart-kit: 6.12.0_278af403c91fe66479973576c8e30291
       react-native-dialog: 9.3.0_react-native@0.72.1
       react-native-heroicons: 3.2.0_70163294450923fc694aaf2c30534b7e
@@ -5295,6 +5299,14 @@ packages:
     engines: {node: '>= 0.8'}
     dev: false
 
+  /deprecated-react-native-prop-types/2.3.0:
+    resolution: {integrity: sha512-pWD0voFtNYxrVqvBMYf5gq3NA2GCpfodS1yNynTPc93AYA/KEMGeWDqqeUB6R2Z9ZofVhks2aeJXiuQqKNpesA==}
+    dependencies:
+      '@react-native/normalize-color': 2.1.0
+      invariant: 2.2.4
+      prop-types: 15.8.1
+    dev: false
+
   /deprecated-react-native-prop-types/4.1.0:
     resolution: {integrity: sha512-WfepZHmRbbdTvhcolb8aOKEvQdcmTMn5tKLbqbXmkBvjFjRVWAYqsXk/DBsV8TZxws8SdGHLuHaJrHSQUPRdfw==}
     dependencies:
@@ -9378,6 +9390,35 @@ packages:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: false
 
+  /react-native-animatable/1.3.3:
+    resolution: {integrity: sha512-2ckIxZQAsvWn25Ho+DK3d1mXIgj7tITkrS4pYDvx96WyOttSvzzFeQnM2od0+FUMzILbdHDsDEqZvnz1DYNQ1w==}
+    dependencies:
+      prop-types: 15.8.1
+    dev: false
+
+  /react-native-autocomplete-dropdown/3.0.2_278af403c91fe66479973576c8e30291:
+    resolution: {integrity: sha512-TNQyrCOT0qPYvmChbxc+pLnD+W1mTCxQZ4R5a//AMstzPvaQPEyE6m5eIkKgp5j8m2EZYJ/tMD3q72+q0LqXoA==}
+    peerDependencies:
+      react: '*'
+      react-native: '>=0.40.0'
+      react-native-svg: ^13.0.0
+    dependencies:
+      lodash.debounce: 4.0.8
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-native: 0.72.1_4e0f55b1fb310f005e421cef579483ea
+      react-native-animatable: 1.3.3
+      react-native-feather: 1.1.2_2583940e091e78283ca84392381d2e11
+      react-native-size-matters: 0.4.0_react-native@0.72.1
+      react-native-svg: 13.4.0_react-native@0.72.1+react@18.2.0
+    dev: false
+
+  /react-native-autocomplete-input/5.3.2:
+    resolution: {integrity: sha512-TkAljT7LDae7z4JakxKUV1HPM7pfGaA3+zUR0SzSD0Xt2DYHanpjJ9AEHvJBPeIyK2W7rLDS41U9sTZxvQqfpg==}
+    dependencies:
+      deprecated-react-native-prop-types: 2.3.0
+    dev: false
+
   /react-native-chart-kit/6.12.0_278af403c91fe66479973576c8e30291:
     resolution: {integrity: sha512-nZLGyCFzZ7zmX0KjYeeSV1HKuPhl1wOMlTAqa0JhlyW62qV/1ZPXHgT8o9s8mkFaGxdqbspOeuaa6I9jUQDgnA==}
     peerDependencies:
@@ -9416,6 +9457,16 @@ packages:
       react-native: 0.72.1_4e0f55b1fb310f005e421cef579483ea
     dev: false
 
+  /react-native-feather/1.1.2_2583940e091e78283ca84392381d2e11:
+    resolution: {integrity: sha512-qBc0+XegKkX4JV6ykgScasguEV3RdlbYp9IrCMnbozngOgJ7vi76pyRpb+dnZ1AZVkYsbYnpdA9JXeP7EJbMCA==}
+    peerDependencies:
+      react-native: '>=0.46'
+      react-native-svg: '>=5.3'
+    dependencies:
+      react-native: 0.72.1_4e0f55b1fb310f005e421cef579483ea
+      react-native-svg: 13.4.0_react-native@0.72.1+react@18.2.0
+    dev: false
+
   /react-native-heroicons/3.2.0_446d3bc74e1cb7819219446648130caf:
     resolution: {integrity: sha512-M5jlhReLBALrmeKIjH1qgF3OCNphfw8xKpRlHpX8OH4zgsC3L6+Lt+c4/hNxSbxUIN2+s8XC0eK/NZLku14IzA==}
     peerDependencies:
@@ -9443,6 +9494,14 @@ packages:
       react-native: '*'
     dependencies:
       react: 18.2.0
+      react-native: 0.72.1_4e0f55b1fb310f005e421cef579483ea
+    dev: false
+
+  /react-native-size-matters/0.4.0_react-native@0.72.1:
+    resolution: {integrity: sha512-8/C0htHrFWeUm9N8JegmadovUfgTWkGBkDPZ1N3YkXtDWb+98Ya2gThiKcu445r8c7YhcrBfnHz/mYsXIusaOQ==}
+    peerDependencies:
+      react-native: '*'
+    dependencies:
       react-native: 0.72.1_4e0f55b1fb310f005e421cef579483ea
     dev: false
 

@@ -1,4 +1,4 @@
-import { SafeAreaView, View, Text, Pressable } from "react-native";
+import { SafeAreaView, View } from "react-native";
 import React from "react";
 import { useAuth } from "@clerk/clerk-expo";
 import { DeleteAccount } from "../deleteAccount";

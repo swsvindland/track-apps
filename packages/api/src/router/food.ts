@@ -182,6 +182,11 @@ export const foodRouter = router({
         },
       );
 
-      return response.data?.suggestions?.suggestion ?? [];
+      return (
+        response.data?.suggestions?.suggestion?.map((item: string) => ({
+          id: item,
+          title: item,
+        })) ?? []
+      );
     }),
 });
