@@ -1,8 +1,5 @@
 import { ExpoConfig } from "@expo/config";
 
-const CLERK_PUBLISHABLE_KEY = !__DEV__
-  ? "pk_live_Y2xlcmsud29ya291dC10cmFjay5jb20k"
-  : "pk_test_c2F2ZWQtbGVvcGFyZC01NC5jbGVyay5hY2NvdW50cy5kZXYk";
 const defineConfig = (): ExpoConfig => ({
   owner: "swsvindland",
   name: "Water Track",
@@ -44,7 +41,6 @@ const defineConfig = (): ExpoConfig => ({
     eas: {
       projectId: "f3848044-ce0d-40d1-abf6-fd57378c04be",
     },
-    CLERK_PUBLISHABLE_KEY,
   },
   plugins: ["./expo-plugins/with-modify-gradle.js"],
 });
