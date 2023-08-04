@@ -1,10 +1,8 @@
 import { ExpoConfig } from "@expo/config";
 
-const CLERK_PUBLISHABLE_KEY =
-  process.env.NODE_ENV === "production"
-    ? "pk_live_Y2xlcmsud29ya291dC10cmFjay5jb20k"
-    : "pk_test_c2F2ZWQtbGVvcGFyZC01NC5jbGVyay5hY2NvdW50cy5kZXYk";
-
+const CLERK_PUBLISHABLE_KEY = !__DEV__
+  ? "pk_live_Y2xlcmsud29ya291dC10cmFjay5jb20k"
+  : "pk_test_c2F2ZWQtbGVvcGFyZC01NC5jbGVyay5hY2NvdW50cy5kZXYk";
 const defineConfig = (): ExpoConfig => ({
   owner: "swsvindland",
   name: "Macro Track",
@@ -28,13 +26,13 @@ const defineConfig = (): ExpoConfig => ({
   },
   assetBundlePatterns: ["**/*"],
   ios: {
-    buildNumber: "7",
+    buildNumber: "8",
     userInterfaceStyle: "automatic",
     supportsTablet: true,
     bundleIdentifier: "com.svindland.bptrack",
   },
   android: {
-    versionCode: 7,
+    versionCode: 8,
     userInterfaceStyle: "automatic",
     adaptiveIcon: {
       foregroundImage: "./assets/icon.png",
