@@ -9,8 +9,6 @@ export const Create: FC = () => {
   const [visible, setVisible] = useState(false);
   const [query, setQuery] = useState("");
 
-  console.log(query);
-
   // const [state, setState] = useState<State>({
   //   systolic: undefined,
   //   diastolic: undefined,
@@ -51,18 +49,18 @@ export const Create: FC = () => {
       >
         <View className="flex-1 bg-white">
           <View className="h-screen p-4">
-            <View className="mt-16 flex-1">
+            <View className="z-10 mt-16 flex-1">
               <AutocompleteDropdown
-                clearOnFocus={false}
-                closeOnBlur={true}
-                closeOnSubmit={false}
                 initialValue={undefined} // or just '2'
                 direction={Platform.select({ ios: "down" })}
                 debounce={600}
-                suggestionsListMaxHeight={Dimensions.get("window").height * 0.4}
                 onChangeText={setQuery}
-                dataSet={optionsQuery.data ?? []}
-                loading={optionsQuery.isFetching}
+                dataSet={[
+                  { id: "1", title: "Alpha" },
+                  { id: "2", title: "Beta" },
+                  { id: "3", title: "Gamma" },
+                ]}
+                loading={optionsQuery.isLoading}
               />
             </View>
             <View className="flex-grow" />
