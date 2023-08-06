@@ -5,7 +5,6 @@ import { FC, useMemo, useState } from "react";
 import { format } from "date-fns";
 
 export const HeartRateChart: FC = () => {
-  const colorScheme = useColorScheme();
   // react-native-chart-kit does not export its data type
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [data, setData] = useState<any>(null);
@@ -27,7 +26,7 @@ export const HeartRateChart: FC = () => {
             query.data
               ?.filter((item) => item.heartRate != null)
               .map((item) => item.heartRate) ?? [],
-          color: () => "#f43f5e", // optional
+          color: () => "#ba1a1a", // optional
         },
       ],
       legend: ["Heart Rate"],
@@ -44,7 +43,7 @@ export const HeartRateChart: FC = () => {
 
   return (
     <View>
-      <Text className="text-center text-lg font-bold dark:text-white">
+      <Text className="text-center text-lg font-bold text-secondary">
         Heart Rate
       </Text>
       <LineChart
@@ -53,19 +52,18 @@ export const HeartRateChart: FC = () => {
         height={220}
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={{
-          backgroundColor: colorScheme === "dark" ? "#404040" : "#fff",
-          backgroundGradientFrom: colorScheme === "dark" ? "#404040" : "#fff",
-          backgroundGradientTo: colorScheme === "dark" ? "#404040" : "#fff",
+          backgroundColor: "#2E586A",
+          backgroundGradientFrom: "#2E586A",
+          backgroundGradientTo: "#2E586A",
           decimalPlaces: 0, // optional, defaults to 2dp
-          color: () => (colorScheme === "dark" ? "#fff" : "#000"),
-          labelColor: () => (colorScheme === "dark" ? "#fff" : "#000"),
+          color: () => "#F7C619",
+          labelColor: () => "#F7C619",
           style: {
             borderRadius: 16,
           },
           propsForDots: {
             r: "6",
             strokeWidth: "2",
-            stroke: colorScheme === "dark" ? "#fff" : "#000",
           },
         }}
         style={{

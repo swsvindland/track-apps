@@ -26,15 +26,15 @@ export const Button: FC<ButtonProps> = ({
         className ?? "",
         fullWidth ? "w-full" : "",
         variant === "secondary"
-          ? "flex flex-row items-center justify-center rounded-full border border-teal-500 bg-transparent p-4 active:bg-teal-100"
-          : "flex flex-row items-center justify-center rounded-full bg-teal-500 p-4 active:bg-teal-700",
+          ? "flex flex-row items-center justify-center rounded-full border border-primary bg-transparent px-6 py-4 active:bg-teal-100"
+          : "flex flex-row items-center justify-center rounded-full bg-primary px-6 py-4 active:bg-primary-dark",
       )}
       onPress={onPress}
     >
       {icon && <View className="mr-2">{icon}</View>}
       <Text
         className={classNames(
-          variant === "secondary" ? "text-teal-500" : "text-white",
+          variant === "secondary" ? "text-primary" : "text-secondary",
           "text-lg font-bold uppercase",
         )}
       >

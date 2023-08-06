@@ -1,11 +1,10 @@
-import { Dimensions, Text, useColorScheme, View } from "react-native";
+import { Dimensions, Text, View } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import { trpc } from "@acme/utils";
 import { FC, useMemo, useState } from "react";
 import { format } from "date-fns";
 
 export const HeightChart: FC = () => {
-  const colorScheme = useColorScheme();
   // react-native-chart-kit does not export its data type
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [data, setData] = useState<any>(null);
@@ -24,7 +23,7 @@ export const HeightChart: FC = () => {
       datasets: [
         {
           data: query.data?.map((item) => item.height) ?? [],
-          color: () => "#d946ef", // optional
+          color: () => "#F7C619", // optional
         },
       ],
       legend: ["Height"],
@@ -50,19 +49,18 @@ export const HeightChart: FC = () => {
         height={220}
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={{
-          backgroundColor: colorScheme === "dark" ? "#404040" : "#fff",
-          backgroundGradientFrom: colorScheme === "dark" ? "#404040" : "#fff",
-          backgroundGradientTo: colorScheme === "dark" ? "#404040" : "#fff",
+          backgroundColor: "#2E586A",
+          backgroundGradientFrom: "#2E586A",
+          backgroundGradientTo: "#2E586A",
           decimalPlaces: 0, // optional, defaults to 2dp
-          color: () => (colorScheme === "dark" ? "#fff" : "#000"),
-          labelColor: () => (colorScheme === "dark" ? "#fff" : "#000"),
+          color: () => "#F7C619",
+          labelColor: () => "#F7C619",
           style: {
             borderRadius: 16,
           },
           propsForDots: {
             r: "6",
             strokeWidth: "2",
-            stroke: colorScheme === "dark" ? "#fff" : "#000",
           },
         }}
         style={{
