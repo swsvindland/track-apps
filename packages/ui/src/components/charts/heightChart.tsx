@@ -5,6 +5,10 @@ import { FC, useMemo, useState } from "react";
 import { format } from "date-fns";
 
 export const HeightChart: FC = () => {
+  const isLargeScreen = Dimensions.get("window").width > 640;
+  const width = isLargeScreen
+    ? Dimensions.get("window").width / 2 - 16
+    : Dimensions.get("window").width - 16;
   // react-native-chart-kit does not export its data type
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [data, setData] = useState<any>(null);
@@ -39,13 +43,13 @@ export const HeightChart: FC = () => {
   }
 
   return (
-    <View>
-      <Text className="text-center text-lg font-bold dark:text-white">
+    <View className="w-full sm:w-1/2">
+      <Text className="text-center text-lg font-bold text-secondary">
         Heights
       </Text>
       <LineChart
         data={data}
-        width={Dimensions.get("window").width - 16} // from react-native
+        width={width} // from react-native
         height={220}
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={{

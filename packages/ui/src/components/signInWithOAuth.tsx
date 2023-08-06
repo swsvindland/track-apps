@@ -50,43 +50,45 @@ export const SignInWithOAuth: FC<SignInWithOAuthProps> = ({ logo }) => {
 
   return (
     <View className="flex-1 items-center justify-center">
-      <View>
-        {logo === "bp" ? (
-          <Image
-            source={require(`../images/bp.png`)}
-            style={{ height: 128, width: 128 }}
+      <View className="justiry-center flex w-96 items-center">
+        <View>
+          {logo === "bp" ? (
+            <Image
+              source={require(`../images/bp.png`)}
+              style={{ height: 128, width: 128 }}
+            />
+          ) : null}
+          {logo === "body" ? (
+            <Image
+              source={require(`../images/body.png`)}
+              style={{ height: 128, width: 128 }}
+            />
+          ) : null}
+          {logo === "water" ? (
+            <Image
+              source={require(`../images/water.png`)}
+              style={{ height: 128, width: 128 }}
+            />
+          ) : null}
+          {logo === "punch" ? (
+            <Image
+              source={require(`../images/punch.png`)}
+              style={{ height: 128, width: 128 }}
+            />
+          ) : null}
+        </View>
+        <View className="my-2 w-full">
+          <Button
+            onPress={handleSignInWithApplePress}
+            text="Sign In With Apple"
           />
-        ) : null}
-        {logo === "body" ? (
-          <Image
-            source={require(`../images/body.png`)}
-            style={{ height: 128, width: 128 }}
+        </View>
+        <View className="my-2 w-full">
+          <Button
+            onPress={handleSignInWithGooglePress}
+            text="Sign In With Google"
           />
-        ) : null}
-        {logo === "water" ? (
-          <Image
-            source={require(`../images/water.png`)}
-            style={{ height: 128, width: 128 }}
-          />
-        ) : null}
-        {logo === "punch" ? (
-          <Image
-            source={require(`../images/punch.png`)}
-            style={{ height: 128, width: 128 }}
-          />
-        ) : null}
-      </View>
-      <View className="my-2 w-full">
-        <Button
-          onPress={handleSignInWithApplePress}
-          text="Sign In With Apple"
-        />
-      </View>
-      <View className="my-2 w-full">
-        <Button
-          onPress={handleSignInWithGooglePress}
-          text="Sign In With Google"
-        />
+        </View>
       </View>
     </View>
   );

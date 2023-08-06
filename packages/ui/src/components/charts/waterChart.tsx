@@ -42,7 +42,7 @@ export const WaterChart: FC = () => {
   }
 
   return (
-    <View>
+    <View className="w-full sm:w-1/2">
       <Text className="text-center text-lg font-bold dark:text-white">
         Water
       </Text>

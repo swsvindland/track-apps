@@ -1,10 +1,14 @@
-import { Dimensions, Text, useColorScheme, View } from "react-native";
+import { Dimensions, Text, View } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import { trpc } from "@acme/utils";
 import { FC, useMemo, useState } from "react";
 import { format } from "date-fns";
 
 export const HeartRateChart: FC = () => {
+  const isLargeScreen = Dimensions.get("window").width > 640;
+  const width = isLargeScreen
+    ? Dimensions.get("window").width / 2 - 16
+    : Dimensions.get("window").width - 16;
   // react-native-chart-kit does not export its data type
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [data, setData] = useState<any>(null);
@@ -42,13 +46,13 @@ export const HeartRateChart: FC = () => {
   }
 
   return (
-    <View>
+    <View className="w-full sm:w-1/2">
       <Text className="text-center text-lg font-bold text-secondary">
         Heart Rate
       </Text>
       <LineChart
         data={data}
-        width={Dimensions.get("window").width - 16} // from react-native
+        width={width} // from react-native
         height={220}
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={{
