@@ -8,14 +8,11 @@ import {
 } from "react-native-heroicons/outline";
 import { HomeScreen } from "../screens/home";
 import { ReportsScreen, SettingsScreen } from "@acme/ui";
-import { useColorScheme } from "react-native";
 import { HeightScreen } from "../screens/height";
 
 const Tab = createBottomTabNavigator();
 
 export const Layout: FC = () => {
-  const colorScheme = useColorScheme();
-
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -34,10 +31,10 @@ export const Layout: FC = () => {
           }
         },
         tabBarStyle: {
-          backgroundColor: colorScheme === "dark" ? "#262626" : "#fff",
+          backgroundColor: "#2E586A",
         },
-        tabBarActiveTintColor: "teal",
-        tabBarInactiveTintColor: "gray",
+        tabBarActiveTintColor: "#F7C619",
+        tabBarInactiveTintColor: "#AFD257",
       })}
     >
       <Tab.Screen
@@ -46,9 +43,9 @@ export const Layout: FC = () => {
         navigationKey="home"
         options={{
           headerStyle: {
-            backgroundColor: colorScheme === "dark" ? "#262626" : "#fff",
+            backgroundColor: "#2E586A",
           },
-          headerTintColor: colorScheme === "dark" ? "#fff" : "#000",
+          headerTintColor: "#F7C619",
         }}
       />
       <Tab.Screen
@@ -57,9 +54,9 @@ export const Layout: FC = () => {
         navigationKey="height"
         options={{
           headerStyle: {
-            backgroundColor: colorScheme === "dark" ? "#262626" : "#fff",
+            backgroundColor: "#2E586A",
           },
-          headerTintColor: colorScheme === "dark" ? "#fff" : "#000",
+          headerTintColor: "#F7C619",
         }}
       />
       <Tab.Screen
@@ -68,9 +65,9 @@ export const Layout: FC = () => {
         navigationKey="reports"
         options={{
           headerStyle: {
-            backgroundColor: colorScheme === "dark" ? "#262626" : "#fff",
+            backgroundColor: "#2E586A",
           },
-          headerTintColor: colorScheme === "dark" ? "#fff" : "#000",
+          headerTintColor: "#F7C619",
         }}
       />
       <Tab.Screen
@@ -79,9 +76,9 @@ export const Layout: FC = () => {
         navigationKey="settings"
         options={{
           headerStyle: {
-            backgroundColor: colorScheme === "dark" ? "#262626" : "#fff",
+            backgroundColor: "#2E586A",
           },
-          headerTintColor: colorScheme === "dark" ? "#fff" : "#000",
+          headerTintColor: "#F7C619",
         }}
       />
     </Tab.Navigator>

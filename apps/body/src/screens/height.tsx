@@ -8,7 +8,7 @@ import { HeightChart } from "@acme/ui";
 export const HeightScreen = () => {
   return (
     <SafeAreaView>
-      <View className="h-full w-full bg-teal-50 px-2 pt-4 dark:bg-black">
+      <View className="h-full w-full bg-background px-2 pt-4 dark:bg-black">
         <HeightChart />
         <GridList />
         <Create />

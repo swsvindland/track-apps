@@ -40,7 +40,7 @@ export const Create: FC = () => {
   return (
     <View className="absolute bottom-4 right-4">
       <Button
-        icon={<PlusIcon color="white" />}
+        icon={<PlusIcon color="#F7C619" />}
         text="Create"
         onPress={() => showDialog()}
       />

@@ -8,11 +8,11 @@ const defineConfig = (): ExpoConfig => ({
   scheme: "body-track",
   orientation: "portrait",
   icon: "./assets/icon.png",
-  userInterfaceStyle: "light",
+  userInterfaceStyle: "dark",
   splash: {
-    image: "./assets/icon.png",
+    image: "./assets/splash.png",
     resizeMode: "contain",
-    backgroundColor: "#fff",
+    backgroundColor: "#2E586A",
   },
   updates: {
     fallbackToCacheTimeout: 0,
