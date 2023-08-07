@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Track",
@@ -9,6 +10,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>{children}</body>
+      <Analytics />
     </html>
   );
 }

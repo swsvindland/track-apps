@@ -289,6 +289,7 @@ importers:
       '@types/node': ^18.17.2
       '@types/react': ^18.2.18
       '@types/react-dom': ^18.2.7
+      '@vercel/analytics': ^1.0.1
       autoprefixer: ^10.4.14
       chart.js: ^4.3.0
       date-fns: ^2.30.0
@@ -314,6 +315,7 @@ importers:
       '@trpc/next': 10.37.1_15f3a80e08e7563efbc297a5557693ca
       '@trpc/react-query': 10.37.1_f4d94b81410c5741364be50fa749ecbd
       '@trpc/server': 10.37.1
+      '@vercel/analytics': 1.0.1
       chart.js: 4.3.0
       date-fns: 2.30.0
       next: 13.4.12_react-dom@18.2.0+react@18.2.0
@@ -3901,6 +3903,10 @@ packages:
       '@urql/core': 2.3.6_graphql@15.8.0
       graphql: 15.8.0
       wonka: 4.0.15
+    dev: false
+
+  /@vercel/analytics/1.0.1:
+    resolution: {integrity: sha512-Ux0c9qUfkcPqng3vrR0GTrlQdqNJ2JREn/2ydrVuKwM3RtMfF2mWX31Ijqo1opSjNAq6rK76PwtANw6kl6TAow==}
     dev: false
 
   /@xmldom/xmldom/0.7.11:
