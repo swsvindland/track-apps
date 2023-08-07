@@ -1,11 +1,14 @@
 import type { NextPage } from "next";
+import { Hero } from "../components/marketing/hero";
+import { Features } from "../components/marketing/features";
+import { Pricing } from "../components/marketing/pricing";
 
 const Home: NextPage = () => {
   return (
-    <main className="flex h-screen flex-col items-center">
-      <div className="container grid grid-cols-1 gap-4">
-        <h1>Home</h1>
-      </div>
+    <main>
+      <Hero />
+      <Features />
+      <Pricing />
     </main>
   );
 };
