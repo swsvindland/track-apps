@@ -3,6 +3,7 @@ import { LineChart } from "react-native-chart-kit";
 import { trpc } from "@acme/utils";
 import { FC, useMemo, useState } from "react";
 import { format } from "date-fns";
+import { LoadingChart } from "../loading";
 
 export const BloodPressureChart: FC = () => {
   const isLargeScreen = Dimensions.get("window").width > 640;
@@ -39,7 +40,7 @@ export const BloodPressureChart: FC = () => {
   }, [query.data]);
 
   if (query.isLoading) {
-    return <Text>Loading...</Text>;
+    return <LoadingChart />;
   }
 
   if (!query.data || query.data.length === 0) {

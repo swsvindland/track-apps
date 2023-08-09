@@ -3,6 +3,7 @@ import { trpc } from "@acme/utils";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { format } from "date-fns";
 import { Edit } from "./edit";
+import { LoadingGridItems } from "@acme/ui";
 
 export interface Height {
   id: bigint;
@@ -22,7 +23,7 @@ export const GridList: FC = () => {
   }, [visible]);
 
   if (userWeightsQuery.isLoading) {
-    return <Text>Loading...</Text>;
+    return <LoadingGridItems />;
   }
 
   const handleEdit = (item: Height) => {

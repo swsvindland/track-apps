@@ -2,6 +2,7 @@ import { Dimensions, Text, useColorScheme, View } from "react-native";
 import { ProgressChart } from "react-native-chart-kit";
 import { trpc } from "@acme/utils";
 import { FC, useMemo, useState } from "react";
+import { LoadingChart } from "../loading";
 
 export const WaterChart: FC = () => {
   const colorScheme = useColorScheme();
@@ -34,7 +35,7 @@ export const WaterChart: FC = () => {
   }, [query.data]);
 
   if (query.isLoading) {
-    return <Text>Loading...</Text>;
+    return <LoadingChart />;
   }
 
   if (!query.data || query.data.length === 0) {
