@@ -7,6 +7,7 @@ import {
   Cog6ToothIcon,
   HomeIcon,
   XMarkIcon,
+  ScaleIcon,
 } from "@heroicons/react/24/outline";
 import { UserButton } from "@clerk/nextjs";
 import { useRouter } from "next/router";
@@ -15,6 +16,7 @@ import Image from "next/image";
 
 const defaultNavigation = [
   { name: "Dashboard", href: "/track", icon: HomeIcon, current: true },
+  { name: "Food", href: "/food", icon: ScaleIcon, current: false },
   { name: "Reports", href: "/reports", icon: ChartPieIcon, current: false },
 ];
 
