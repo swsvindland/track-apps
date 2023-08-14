@@ -14,7 +14,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const defaultNavigation = [
-  { name: "Dashboard", href: "/", icon: HomeIcon, current: true },
+  { name: "Dashboard", href: "/track", icon: HomeIcon, current: true },
   { name: "Reports", href: "/reports", icon: ChartPieIcon, current: false },
 ];
 
@@ -256,6 +256,7 @@ export default function Layout(props: LayoutProps) {
                 aria-hidden="true"
               />
               <UserButton
+                afterSignOutUrl="/"
                 appearance={{
                   elements: {
                     userButtonAvatarBox: {

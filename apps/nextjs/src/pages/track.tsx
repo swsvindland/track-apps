@@ -7,7 +7,7 @@ import { Charts } from "../components/charts";
 import { Login } from "../components/login";
 import { useAuth } from "@clerk/nextjs";
 
-const Home: NextPage = () => {
+const Track: NextPage = () => {
   const { isSignedIn } = useAuth();
 
   if (!isSignedIn) {
@@ -34,4 +34,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Track;
