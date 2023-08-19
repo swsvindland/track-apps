@@ -16,7 +16,14 @@ import Image from "next/image";
 
 const defaultNavigation = [
   { name: "Dashboard", href: "/track", icon: HomeIcon, current: true },
-  { name: "Food", href: "/food", icon: ScaleIcon, current: false },
+  { name: "Food", href: "/track/food", icon: ScaleIcon, current: false },
+  {
+    name: "Blood Pressure",
+    href: "/track/bp",
+    icon: ScaleIcon,
+    current: false,
+  },
+
   { name: "Reports", href: "/reports", icon: ChartPieIcon, current: false },
 ];
 
@@ -139,9 +146,9 @@ export default function Layout(props: LayoutProps) {
                       </li>
                       <li className="mt-auto">
                         <Link
-                          href="/settings"
+                          href="/track/settings"
                           className={classNames(
-                            router.pathname === "/settings"
+                            router.pathname === "/track/settings"
                               ? "bg-gray-50 text-indigo-600"
                               : "text-gray-700 hover:bg-gray-50 hover:text-indigo-600",
                             "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6",
@@ -207,9 +214,9 @@ export default function Layout(props: LayoutProps) {
               </li>
               <li className="mt-auto">
                 <Link
-                  href="/settings"
+                  href="/track/settings"
                   className={classNames(
-                    router.pathname === "/settings"
+                    router.pathname === "/track/settings"
                       ? "bg-gray-50 text-indigo-600"
                       : "text-gray-700 hover:bg-gray-50 hover:text-indigo-600",
                     "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6",

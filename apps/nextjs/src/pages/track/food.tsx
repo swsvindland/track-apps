@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Layout from "../components/layout";
-import { Login } from "../components/login";
+import Layout from "../../components/layout";
+import { Login } from "../../components/login";
 import { useAuth } from "@clerk/nextjs";
 
-const Track: NextPage = () => {
+const Food: NextPage = () => {
   const { isSignedIn } = useAuth();
 
   if (!isSignedIn) {
@@ -29,4 +29,4 @@ const Track: NextPage = () => {
   );
 };
 
-export default Track;
+export default Food;
